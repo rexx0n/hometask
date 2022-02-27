@@ -12,3 +12,16 @@ function isPoli(arg) {
   console.log(isPoli('AABBAA')===true);
 
   // second variation
+
+  function isPolig(text) {
+    let c = Math.floor(text.length / 2) 
+    for (let i = 0; i >=c;) {
+        if (i>=c) {
+            return true
+        }
+        else {
+            text[i] === text[text.length - i + 1]
+        }
+    }
+  }
+  console.log(isPolig('ДОВОД')===true)
