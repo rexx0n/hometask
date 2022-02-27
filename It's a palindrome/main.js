@@ -20,7 +20,13 @@ function isPoli(arg) {
             return true
         }
         else {
-            text[i] === text[text.length - i + 1]
+          if(text[i] === text[text.length - i + 1]) {
+            i = i + 1
+          }
+          else{
+            return false
+          }
+      
         }
     }
   }
