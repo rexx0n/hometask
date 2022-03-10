@@ -13,4 +13,4 @@ console.log(genderDetermination("male") === "Your gender is male");
 console.log(genderDetermination("female") === "Your gender is female");
 console.log(genderDetermination("dog") === "Your gender is undefined");
 
-//It could be written differently, without repeating code, but I haven't figured out how
+// It could be written differently, without repeating code, but I haven't figured out how
