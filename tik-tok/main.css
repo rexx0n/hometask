@@ -1,0 +1,18 @@
+body {
+    margin: 0 auto;
+}
+.tiktok {
+    display: flex;
+    width: 359px;
+    height: 500px;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.tiktok__pole {
+    background-color: gray;
+    width: 100px;
+    height: 100px;
+    margin-right: 13px;
+    margin-bottom:26px ;
+}
