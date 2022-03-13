@@ -16,3 +16,9 @@ body {
     margin-right: 13px;
     margin-bottom:26px ;
 }
+.tiktok__pole--tik {
+    background-color: blue;
+}
+.tiktok__pole--tok {
+    background-color: yellow;
+}
