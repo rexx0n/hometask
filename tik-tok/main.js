@@ -8,10 +8,13 @@ let game = {
         if (this.isTok === true) {
             event.target.classList.add("tiktok__pole--tok");
             event.target.znak = "O";
+            alert("Сейчас ходит крестик");
+            
         }
         else {
             event.target.classList.add("tiktok__pole--tik");
             event.target.znak = "X"
+            alert("Сейчас ходит нолик")
         }
         let result = this.checkWinner()
         if (result !== null) {

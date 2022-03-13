@@ -1,5 +1,6 @@
 body {
     margin: 0 auto;
+    background-color: #7029ff;;
 }
 .tiktok {
     display: flex;
@@ -17,8 +18,19 @@ body {
     margin-bottom:26px ;
 }
 .tiktok__pole--tik {
-    background-color: blue;
+    background-image: url(img/x.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
+
 .tiktok__pole--tok {
-    background-color: yellow;
+    background-image: url(img/o.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.ss {
+    display: flex;
+    justify-content: center;
 }
