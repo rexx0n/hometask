@@ -21,7 +21,7 @@ const family = [
   {
     name: "Danil",
     age: 21,
-  }
+  },
 ];
 
 // const res = family.sort(compare);
@@ -39,11 +39,30 @@ const family = [
 // }
 // console.log(JSON.stringify(family))
 
-const result = family.map((element, index) => {
-    let a = {...element}
-    a.id = index
-    return a  
-})
-console.log(JSON.stringify(result))
+// const result = family.map((element, index) => {
+//     let a = {...element}
+//     a.id = index
+//     return a
+// })
+// console.log(JSON.stringify(result))
 
-const res = family.reduce//посчитать суммарный возвраст всех участников
+// const totalAge = family.reduce((acc, user) => {
+//   acc[user.name] = user.age;
+//   return acc
+// }, {});
+// console.log(totalAge)
+
+function factoryCalckClick(message) {
+  let calck = 0;
+  return function () {
+    console.log(`${message}-${calck}`);
+    calck++;
+  };
+}
+let counter = factoryCalckClick("Ready");
+let counter2 = factoryCalckClick("Finish")
+
+counter();
+counter();
+counter2();
+counter()
