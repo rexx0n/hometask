@@ -1,0 +1,18 @@
+.row {
+
+    gap: 1rem;
+    display: flex;
+    
+}
+.row span {
+    width: 50px;
+    background-color: rgb(190, 190, 190);
+    height: 50px;
+    margin-bottom: 1rem;
+    border: solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+}
