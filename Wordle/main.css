@@ -16,3 +16,11 @@
     font-size: 40px;
     font-weight: bold;
 }
+.yellow {
+    background-color: yellow;
+    color: yellow;
+}
+.green {
+    color: #30a630;
+    background-color: lime;
+}
