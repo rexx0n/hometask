@@ -24,3 +24,20 @@
     color: #30a630;
     background-color: lime;
 }
+.game {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.panel {
+    display: flex;
+    justify-content: center;
+}
+h1 {
+    text-align: center;
+    margin-top: 100px;
+}
+p {
+    font-size: 64px;
+    text-align: center;
+}

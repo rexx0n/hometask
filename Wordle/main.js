@@ -6,9 +6,10 @@ let wordle = {
     //если больше 5 то отмена
     //если меньше 5 то отмена
     if (this.isValid(str) === false) {
-                                                            //если меньше 5 символов то вывести что нужно 5
-      return ;
+      // if ()//если меньше 5 символов то вывести что нужно 5
+      return this.changeTitle("НУЖНО 5 СИМВОЛОВ!")
     }
+    this.changeTitle("")
     //если 5 то ввести по символу в ячейки
     let row = document.getElementById(this.try).querySelectorAll("span");
     for (let i = 0; i < str.length; i++) {
@@ -30,12 +31,12 @@ let wordle = {
     //проверить совпадают ли слова
     // если да то вывести победа если нет то увеличить попытку
     if (this.isWin(str) === true) {
-                                                                          //алерт заменить на вывод в html 
+        this.changeTitle("You Win") 
     } else {
       this.try++;
       //если попыток не осталось то вывести проигрыш, макс 6 попыток
       if (this.try === 6) {
-        alert("You Lose");
+        this.changeTitle("You Lose");
       }
     }
   },
@@ -58,6 +59,10 @@ let wordle = {
     else {
       return false
     }
+  },
+  changeTitle(text) {
+    let paragraph = document.querySelector("body p")
+    paragraph.textContent = text
   },
   getCurrent() {
     let input = document.getElementById("input");
