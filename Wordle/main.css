@@ -44,3 +44,11 @@ p {
 .red {
     color: red;
 }
+.alphabet {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.alphabet span {
+    padding-right: 10px;
+}

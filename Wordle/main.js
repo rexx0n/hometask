@@ -9,7 +9,7 @@ let wordle = {
       // if ()//если меньше 5 символов то вывести что нужно 5
       return this.changeTitle("You need five characters!");
     }
-    this.changeTitle("")
+    this.changeTitle("");
     //если 5 то ввести по символу в ячейки
     let row = document.getElementById(this.try).querySelectorAll("span");
     for (let i = 0; i < str.length; i++) {
@@ -25,16 +25,16 @@ let wordle = {
           row[i].classList.add("green");
         }
       }
-                                                                        //будет отлично если сделать ниже алфавит и вычеркивать буквы которые были использованы
+      //будет отлично если сделать ниже алфавит и вычеркивать буквы которые были использованы
       // если буква стоит в правильном место то покрасить в зеленый
     }
     //проверить совпадают ли слова
     // если да то вывести победа если нет то увеличить попытку
     if (this.isWin(str) === true) {
-        this.changeTitle("You Win") 
+      this.changeTitle("You Win");
     } else {
       this.try++;
-      this.try2--
+      this.try2--;
       this.changeTitle(`Your attempts: ${this.try2}`);
       //если попыток не осталось то вывести проигрыш, макс 6 попыток
       if (this.try === 6) {
@@ -43,29 +43,33 @@ let wordle = {
     }
   },
   try: 0,
-  try2:6,
+  try2: 6,
   // функция возвращает true если simfol есть в загаданом слове (this.word) и не стоит на своей позиции
   isYellow(simfol, index) {
     //throw new Error("Не реализована");
-    if (isCharExist(simfol, this.word) != null && isCharExist(simfol, this.word) !== index) {
-      return true
-    } 
-    else {
-      return false
+    if (
+      isCharExist(simfol, this.word) != null &&
+      isCharExist(simfol, this.word) !== index
+    ) {
+      return true;
+    } else {
+      return false;
     }
   },
   // функция возвращает true если simfol есть в загаданом слове (this.word) и стоит на своей позиции
   isGreen(simfol1, index1) {
-    if (isCharExist(simfol1, this.word) !==null && isCharExist(simfol1, this.word) === index1) {
-      return true
-    }
-    else {
-      return false
+    if (
+      isCharExist(simfol1, this.word) !== null &&
+      isCharExist(simfol1, this.word) === index1
+    ) {
+      return true;
+    } else {
+      return false;
     }
   },
   changeTitle(text) {
-    let paragraph = document.querySelector("body p")
-    paragraph.textContent = text
+    let paragraph = document.querySelector("body p");
+    paragraph.textContent = text;
   },
   getCurrent() {
     let input = document.getElementById("input");
@@ -76,12 +80,11 @@ let wordle = {
     return str.length === 5;
   },
   isWin(text) {
-    //throw new Error("Не реализована");  
+    //throw new Error("Не реализована");
     if (text === this.word) {
-      return true
-    }
-    else {
-      return false
+      return true;
+    } else {
+      return false;
     }
   },
   setRandomWord() {
@@ -97,6 +100,7 @@ let wordle = {
   },
   dict: ["ложка", "рюмка"],
   word: null,
+  alphabet: []
 };
 //функция проверяет если ли символ в слове и если есть возвращает номер его позиции в слове, а если нет возвращает null
 function isCharExist (symbol, word) {
