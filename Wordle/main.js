@@ -14,15 +14,20 @@ let wordle = {
     let row = document.getElementById(this.try).querySelectorAll("span");
     for (let i = 0; i < str.length; i++) {
       let a = str[i];
+      let span = document.querySelector(`[data-char=${a.toUpperCase()}]`);
       row[i].textContent = a;
       //Если буква есть в слове но не в этом порядке то покрасить в желтый
       if (this.isYellow(a, i)) {
         //добавить класс желтый
         row[i].classList.add("yellow");
+        span.classList.add("yellow");
       } else {
         if (this.isGreen(a, i)) {
           //Добавить класс зеленый
           row[i].classList.add("green");
+          span.classList.add("green");
+        } else {
+          span.classList.add("gray");
         }
       }
       //будет отлично если сделать ниже алфавит и вычеркивать буквы которые были использованы
@@ -73,7 +78,7 @@ let wordle = {
   },
   getCurrent() {
     let input = document.getElementById("input");
-    return input.value;
+    return input.value.toLowerCase();
   },
   //проверят является ли строка длиной 5 символов
   isValid(str) {
@@ -100,15 +105,15 @@ let wordle = {
   },
   dict: ["ложка", "рюмка"],
   word: null,
-  alphabet: []
+  alphabet: [],
 };
 //функция проверяет если ли символ в слове и если есть возвращает номер его позиции в слове, а если нет возвращает null
-function isCharExist (symbol, word) {
-    for (let i = 0; i < word.length; i++) {
-      if (word[i] === symbol) {
-        return i
-      }
-  } 
-  return null
+function isCharExist(symbol, word) {
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] === symbol) {
+      return i;
+    }
+  }
+  return null;
 }
-wordle.init()
+wordle.init();

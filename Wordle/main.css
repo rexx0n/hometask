@@ -6,7 +6,6 @@
 }
 .row span {
     width: 50px;
-    background-color: rgb(190, 190, 190);
     height: 50px;
     margin-bottom: 1rem;
     border: solid 1px;
@@ -16,13 +15,12 @@
     font-size: 40px;
     font-weight: bold;
 }
+.green {
+    background-color: lime !important;
+    
+}
 .yellow {
     background-color: yellow;
-    color: yellow;
-}
-.green {
-    color: #30a630;
-    background-color: lime;
 }
 .game {
     display: flex;
@@ -51,4 +49,7 @@ p {
 }
 .alphabet span {
     padding-right: 10px;
+}
+.gray {
+    background-color: gray;
 }
