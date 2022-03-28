@@ -103,7 +103,7 @@ let wordle = {
       .querySelector(".btn")
       .addEventListener("click", this.onPoleWrite.bind(this));
   },
-  dict: ["ложка", "рюмка"],
+  dict: ["ложка", "рюмка", "ранец", "стиль", "кошка", "ферма", "червь", "кефир", "марка", "олимп", "", "ярлык", "шалаш"],
   word: null,
   alphabet: [],
 };
