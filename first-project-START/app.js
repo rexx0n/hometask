@@ -45,6 +45,12 @@ const tasks = [
       return
     }
     const fragment = document.createDocumentFragment()
-    Object.values()
+    Object.values(taskList).forEach(task => {
+      const li = listItemTemplate(task);
+    })
+  }
+  function listItemTemplate({_id, title, body} = {}) {
+    const li = document.createElement("li")
+    li.classList.add('')
   }
 })(tasks);
