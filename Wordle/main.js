@@ -7,7 +7,7 @@ let wordle = {
     //если меньше 5 то отмена
     if (this.isValid(str) === false) {
       // if ()//если меньше 5 символов то вывести что нужно 5
-      return this.changeTitle("You need five characters!");
+      return this.changeTitle("Нужно 5 букв!");
     }
     this.changeTitle("");
     //если 5 то ввести по символу в ячейки
@@ -40,10 +40,10 @@ let wordle = {
     } else {
       this.try++;
       this.try2--;
-      this.changeTitle(`Your attempts: ${this.try2}`);
+      this.changeTitle(`Твои попытки: ${this.try2}`);
       //если попыток не осталось то вывести проигрыш, макс 6 попыток
       if (this.try === 6) {
-        this.changeTitle("You Lose");
+        this.changeTitle("Ты проиграл");
       }
     }
   },
