@@ -10,7 +10,7 @@
 // }
 // Записать условие, используя конструктор switch. В консоли должно отразиться только одно значение.
 
-let a = "inline";
+let a = "head";
 
 switch (a) {
   case "block":
@@ -22,4 +22,6 @@ switch (a) {
   case "inline":
     console.log("inline");
     break;
+  default:
+    console.log("other")
 }

@@ -6,12 +6,14 @@ console.log(value === "s");
 value = string[string.length - 1];
 console.log(value === "g");
 
-// 2. Сделать первую и последнюю буквы в верхнем регистре
+// 2. Сделать первую и последнюю буквы в верхнем регистре 
+
+//TODO переделать
 
 value = string[0].toUpperCase();
 console.log(value === "S");
 value = string[string.length - 1].toUpperCase();
-console.log(value === "G");
+console.log(value === "Some test strinG");
 
 // 3. Найти положение слова ‘string’ в строке
 
@@ -19,7 +21,7 @@ value = string.indexOf("string");
 console.log(value === 10);
 
 //4. Найти положение второго пробела (“вручную” ничего не считать)
-
+//TODO переделать
 value = string.lastIndexOf(" ");
 console.log(value === 9);
 
@@ -43,6 +45,5 @@ console.log(value === "some test ");
 // содержаться текст “2016”
 a = 20;
 b = 16;
-num1 = String(a); //Загуглил
-num2 = String(b); //Загуглил
-console.log(num1 + num2 === "2016");
+let res = String(a) + String(b);
+console.log(res === "2016");
