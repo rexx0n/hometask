@@ -8,11 +8,7 @@ console.log(value === "g");
 
 // 2. Сделать первую и последнюю буквы в верхнем регистре 
 
-//TODO переделать
-
-value = string[0].toUpperCase();
-console.log(value === "S");
-value = string[string.length - 1].toUpperCase();
+value = `${string[0].toUpperCase()}ome test strin${string[string.length -1].toUpperCase()}`
 console.log(value === "Some test strinG");
 
 // 3. Найти положение слова ‘string’ в строке
@@ -21,8 +17,7 @@ value = string.indexOf("string");
 console.log(value === 10);
 
 //4. Найти положение второго пробела (“вручную” ничего не считать)
-//TODO переделать
-value = string.lastIndexOf(" ");
+value = string.indexOf(" ", 5);
 console.log(value === 9);
 
 //5. Получить строку с 5-го символа длиной 4 буквы

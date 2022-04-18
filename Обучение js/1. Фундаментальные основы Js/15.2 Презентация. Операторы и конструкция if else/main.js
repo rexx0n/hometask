@@ -31,26 +31,25 @@ let car = { name: "Lexus", age: 10, create: 2008, needRepair: false };
 if (car.age > 5) {
   console.log("Need Repair");
   car.needRepair = true;
-}
-else {
-  car.needRepair = false
+} else {
+  car.needRepair = false;
 }
 console.log(car);
 
 // 4. Дан объект let item = { name: 'Intel core i7', price: '100$', discount: '5%' }.
 // Написать условие если у item есть поле discount и там есть значение которое не NaN а также есть поле price значение которого также не NaN то в объекте item создать поле priceWithDiscount и записать туда цену с учетом скидки и вывести ее в консоль, обратите внимание что поля discount и price это строки и вам из них нужно получить числа чтобы выполнить расчет. иначе если поля discount нет то вывести просто поле price в консоль.
-//TODO убрать функцию, использовать isNaN и использовать parseFloat
-let item = { name: "Intel core i7", price: "100", discount: "15" };
-if (item.discount !== NaN && item.price !== NaN) {
-  function discount(price, discount) {
-    let priceNumber = Number(price);//я убрал символ доллора в обьекты чтобы сделать из строки число
-    let discountNumber = Number(discount);// и процент убрал
-    let sum = (priceNumber / 100) * discountNumber;
+let item = { name: "Intel core i7", price: "100$", discount: "15%" };
 
-    return priceNumber - sum;
-  }
-  item.priceWithDiscount = discount(item.price, item.discount);
+let priceNumber = parseFloat(item.price);
+let discountNumber = parseFloat(item.discount);
+
+if (isNaN(priceNumber) && isNaN(discountNumber)) {
+  console.log("скидка и цена не являются числами")
+} else {
+  let sum = (priceNumber / 100) * discountNumber;
+  item.priceWithDiscount = priceNumber - sum;
 }
+
 console.log(item);
 
 // 5.Написать условие если цена товара больше или равна минимальной цене и меньше или равна максимальной цене то вывести в консоль название этого товара, иначе вывести в консоль что товаров не найдено.
@@ -63,8 +62,8 @@ let product = {
 let min = 10; // минимальная цена
 let max = 20; // максимальная цена
 if (product.price >= min && product.price <= max) {
-  console.log(product.name)
+  console.log(product.name);
+} else {
+  console.log("Товаров не найдено");
 }
-else {
-  console.log("Товаров не найдено")
-}
+
