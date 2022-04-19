@@ -17,12 +17,14 @@ function capitalize(text) {
   return res;
 }
 
-console.log(capitalize(text)=== "I Am In The Easycode")
+console.log(capitalize(text) === "I Am In The Easycode");
 
 // 2. Дана строка “tseb eht ma i”. Используя циклы, сделать строку-перевертыш (то есть последняя буква становится первой, предпоследняя - второй итд).
 
-let str = "tseb eht ma i"
+let str = "tseb eht ma i";
 
 for (let i = 0; i < str.length; i++) {
   
 }
+
+
