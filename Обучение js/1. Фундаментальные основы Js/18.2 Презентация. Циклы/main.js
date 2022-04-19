@@ -22,9 +22,16 @@ console.log(capitalize(text) === "I Am In The Easycode");
 // 2. Дана строка “tseb eht ma i”. Используя циклы, сделать строку-перевертыш (то есть последняя буква становится первой, предпоследняя - второй итд).
 
 let str = "tseb eht ma i";
-
-for (let i = 0; i < str.length; i++) {
-  
+newStr = "";
+for (let i = str.length; i >= 0; i--) {
+  newStr += str[i];
 }
+console.log(newStr);// undefinedi am the best
 
+//3. Факториал числа - произведение всех натуральных чисел от 1 до n
+//включительно: 3! = 3*2*1, 5! = 5*4*3*2*1. С помощью циклов вычислить факториал числа 10. Использовать for.
 
+num = 10
+for (let i = 0; i >=num; i++) {
+  
+} 
