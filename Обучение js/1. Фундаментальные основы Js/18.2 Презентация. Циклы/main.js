@@ -37,3 +37,17 @@ for (let i = num; i >= 1; i--) {
 }
 console.log(value === 3628800);
 
+// 4. На основе строки “JavaScript is a pretty good language” сделать новую строку,
+// где каждое слово начинается с большой буквы, а пробелы удалены. Использовать for.
+let a = ""
+let java = "JavaScript is a pretty good language";
+for (let i = 0; i < java.length; i++) {
+  if (java[i] === " ") {
+    i++;
+     a+= java[i].toUpperCase();
+  }
+  else{
+    a += java[i]; 
+  }
+}
+console.log(a);
