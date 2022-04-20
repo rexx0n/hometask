@@ -26,12 +26,14 @@ newStr = "";
 for (let i = str.length; i >= 0; i--) {
   newStr += str[i];
 }
-console.log(newStr);// undefinedi am the best
+console.log(newStr); // undefinedi am the best
 
 //3. Факториал числа - произведение всех натуральных чисел от 1 до n
 //включительно: 3! = 3*2*1, 5! = 5*4*3*2*1. С помощью циклов вычислить факториал числа 10. Использовать for.
+let value = 1;
+num = 10;
+for (let i = num; i >= 1; i--) {
+  value *= i;
+}
+console.log(value === 3628800);
 
-num = 10
-for (let i = 0; i >=num; i++) {
-  
-} 
