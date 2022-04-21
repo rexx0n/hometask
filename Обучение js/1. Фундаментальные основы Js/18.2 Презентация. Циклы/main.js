@@ -23,7 +23,7 @@ console.log(capitalize(text) === "I Am In The Easycode");
 
 let str = "tseb eht ma i";
 newStr = "";
-for (let i = str.length; i >= 0; i--) {
+for (let i = str.length - 1; i >= 0; i--) {
   newStr += str[i];
 }
 console.log(newStr); // undefinedi am the best
@@ -40,7 +40,7 @@ console.log(value === 3628800);
 // 4. На основе строки “JavaScript is a pretty good language” сделать новую строку,
 // где каждое слово начинается с большой буквы, а пробелы удалены. Использовать for.
 let a = "";
-let java = "JavaScript is a pretty good language";
+let java = "Java  Script is a pretty good language";
 for (let i = 0; i < java.length; i++) {
   if (java[i] === " ") {
     i++;
@@ -53,6 +53,10 @@ console.log(a === "JavaScriptIsAPrettyGoodLanguage");
 
 //5. Найти все нечетные числа в массиве от 1 до 15 включительно и вывести их в консоль. Массив [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] Использовать for of.
 
+
+
+
+
 //6. Дан объект:
 let list = {
   name: "denis",
@@ -62,8 +66,10 @@ let list = {
 // Перебрать объект и если значение в свойстве это строка то переписать ее всю в верхнем регистре. Использовать for in.
 let b = "";
 for (let prop in list) {
-  if (list[prop] === String) {
-    b = list[prop].toUpperCase();
+  if (typeof list[prop] === "string") {
+    list[prop] = list[prop].toUpperCase();
+  
   }
-  console.log(b);
 }
+
+  console.log(list);

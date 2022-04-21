@@ -1,4 +1,4 @@
-let string = "some test string";
+let string = "so  me test string";
 let value;
 // 1. Получить первую и последнюю буквы строки
 value = string[0];
@@ -7,6 +7,7 @@ value = string[string.length - 1];
 console.log(value === "g");
 
 // 2. Сделать первую и последнюю буквы в верхнем регистре 
+//TODO с помощью slice
 
 value = `${string[0].toUpperCase()}ome test strin${string[string.length -1].toUpperCase()}`
 console.log(value === "Some test strinG");
@@ -17,6 +18,7 @@ value = string.indexOf("string");
 console.log(value === 10);
 
 //4. Найти положение второго пробела (“вручную” ничего не считать)
+//TODO с помощью цикла
 value = string.indexOf(" ", 5);
 console.log(value === 9);
 
