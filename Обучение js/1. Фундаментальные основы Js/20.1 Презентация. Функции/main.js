@@ -64,17 +64,19 @@ console.log(getArray(20));
 
 // 6. Создать функцию, которая принимает массив, а возвращает новый массив с дублированными элементами входного массива. Данное задание выполните после того как познакомитесь с методами массивов:
 // doubleArray([1,2,3]) // [1,2,3,1,2,3]
+
 function doubleArray(arrl) {
-  let res
-  for (let i = 0; i < arrl.length; i++) {
-    res = arrl.push(i)
+  let res = arrl.length
+  for (let i = 0; i < res; i++) {
+    arrl.push(arrl[i])
   }
-  return array
+  return arrl
 }
 console.log(doubleArray([1, 2, 3]));
 
 // 7. Создать функцию, которая принимает произвольное (любое) число массивов и удаляет из каждого массива первый элемент, а возвращает массив из оставшихся значений. Данное задание выполните после того как познакомитесь с методами массивов:
 // changeCollection([1,2,3], [‘a’, ’b’, ‘c’]) → [ [2,3], [‘b’, ‘c’] ], changeCollection([1,2,3]) → [ [2,3] ] и т.д.
+//TODO
 function changeCollection (arr, arr2) {
   arr.shift(arr[0])
   arr2.shift(arr2[0])
