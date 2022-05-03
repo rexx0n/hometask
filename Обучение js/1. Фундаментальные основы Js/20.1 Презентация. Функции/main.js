@@ -58,7 +58,8 @@ function getArray(n) {
   for (let i = 1; (i < n ); i++) {
     res.push(i);
   }
-  return res.push(n);
+  res.push(n);
+  return res
 }
 console.log(getArray(20));
 
