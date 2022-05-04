@@ -76,7 +76,6 @@ console.log(doubleArray([1, 2, 3]));
 
 // 7. Создать функцию, которая принимает произвольное (любое) число массивов и удаляет из каждого массива первый элемент, а возвращает массив из оставшихся значений. Данное задание выполните после того как познакомитесь с методами массивов:
 // changeCollection([1,2,3], [‘a’, ’b’, ‘c’]) → [ [2,3], [‘b’, ‘c’] ], changeCollection([1,2,3]) → [ [2,3] ] и т.д.
-//TODO
 function changeCollection (arr, arr2) {
   arr.shift(arr[0])
   arr2.shift(arr2[0])
@@ -91,3 +90,37 @@ console.log(changeCollection([1,2,3],['a', 'b', 'c']) )
 // Данное задание выполните после того как познакомитесь с методами массивов
 
 // funcGetUsers(users, “gender”, “male”); // [ {name: “Denis”, age: “29”, gender: “male”} , {name: “Ivan”, age: “20”, gender: “male”} ]
+const users = [
+{
+  name:"Denis",
+  age: "29",
+  gender:"male",
+},
+{
+  name:"Ivan",
+  age: "20", 
+  gender: "male"
+},
+{
+  name:"Misha",
+  age: "20", 
+  gender: "male"
+},
+{
+  name:"Ivan",
+  age: "29", 
+  gender: "male"
+} 
+]
+console.log(users[0].age === "29")
+function funcGetUsers (arrr, properties, value) {
+  console.log(users[0].properties)
+  for(let i = 0; i < arrr.length - 1; i++) {
+    if (users[i].properties === value) {
+      return users[i]
+    }
+  }
+}
+console.log(funcGetUsers(users, "age", "29"))
+console.log(users[0].name)
+
