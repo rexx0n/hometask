@@ -54,11 +54,11 @@ random(1);
 // Данное задание выполните после того как познакомитесь с методами массивов.
 function getArray(n) {
   let res = [];
-  for (let i = 1; (i < n ); i++) {
+  for (let i = 1; i < n; i++) {
     res.push(i);
   }
   res.push(n);
-  return res
+  return res;
 }
 console.log(getArray(5));
 
@@ -66,61 +66,60 @@ console.log(getArray(5));
 // doubleArray([1,2,3]) // [1,2,3,1,2,3]
 
 function doubleArray(arrl) {
-  let res = arrl.length
+  let res = arrl.length;
   for (let i = 0; i < res; i++) {
-    arrl.push(arrl[i])
+    arrl.push(arrl[i]);
   }
-  return arrl
+  return arrl;
 }
 console.log(doubleArray([1, 2, 3]));
 
 // 7. Создать функцию, которая принимает произвольное (любое) число массивов и удаляет из каждого массива первый элемент, а возвращает массив из оставшихся значений. Данное задание выполните после того как познакомитесь с методами массивов:
 // changeCollection([1,2,3], [‘a’, ’b’, ‘c’]) → [ [2,3], [‘b’, ‘c’] ], changeCollection([1,2,3]) → [ [2,3] ] и т.д.
-function changeCollection (arr, arr2) {
-  arr.shift(arr[0])
-  arr2.shift(arr2[0])
-  for (let i = 0;i < arr2.length ;i++ ) {
-    arr.push(arr2[i])
+function changeCollection(arr, arr2) {
+  arr.shift(arr[0]);
+  arr2.shift(arr2[0]);
+  for (let i = 0; i < arr2.length; i++) {
+    arr.push(arr2[i]);
   }
-  return  arr
+  return arr;
 }
-console.log(changeCollection([1,2,3],['a', 'b', 'c']) )
+console.log(changeCollection([1, 2, 3], ["a", "b", "c"]));
 
 // 8. Создать функцию которая принимает массив пользователей, поле на которое хочу проверить и значение на которое хочу проверять. Проверять что все аргументы переданы. Возвращать новый массив с пользователями соответсвующие указанным параметрам.
 // Данное задание выполните после того как познакомитесь с методами массивов
 
 // funcGetUsers(users, “gender”, “male”); // [ {name: “Denis”, age: “29”, gender: “male”} , {name: “Ivan”, age: “20”, gender: “male”} ]
 const users = [
-{
-  name:"Denis",
-  age: "29",
-  gender:"male",
-},
-{
-  name:"Ivan",
-  age: "20", 
-  gender: "male"
-},
-{
-  name:"Misha",
-  age: "20", 
-  gender: "male"
-},
-{
-  name:"Ivan",
-  age: "29", 
-  gender: "male"
-} 
-]
-console.log(users[0].age === "29")
-function funcGetUsers (arrr, properties, value) {
-  console.log(users[0].properties)
-  for(let i = 0; i < arrr.length - 1; i++) {
-    if (users[i].properties === value) {
-      return users[i]
+  {
+    name: "Denis",
+    age: "29",
+    gender: "male",
+  },
+  {
+    name: "Ivan",
+    age: "20",
+    gender: "male",
+  },
+  {
+    name: "Misha",
+    age: "20",
+    gender: "male",
+  },
+  {
+    name: "Ivan",
+    age: "29",
+    gender: "male",
+  },
+];
+console.log(users[0])
+function funcGetUsers(arrr, properties, value) {
+  console.log(users[0].properties);
+  for (let i = 0; i < arrr.length - 1; i++) {
+    if (users[i].age === value) {
+      return users[i];
     }
   }
 }
-console.log(funcGetUsers(users, "age", "29"))
-console.log(users[0].name)
-
+console.log(funcGetUsers(users, "age", "29"));
+console.log(users[0].name);
