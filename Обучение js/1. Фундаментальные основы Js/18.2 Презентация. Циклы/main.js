@@ -53,12 +53,9 @@ console.log(a === "JavaScriptIsAPrettyGoodLanguage");
 
 //5. Найти все нечетные числа в массиве от 1 до 15 включительно и вывести их в консоль. Массив [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] Использовать for of.
 array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-
-  for (let i = 0; i < array.length; i++) {
-    let item = array[i];
-    if(item % 2) 
-      console.log(item);
-  }
+for (let item of array) {
+  if (item % 2) console.log(item);
+}
 //6. Дан объект:
 let list = {
   name: "denis",
@@ -70,8 +67,7 @@ let b = "";
 for (let prop in list) {
   if (typeof list[prop] === "string") {
     list[prop] = list[prop].toUpperCase();
-  
   }
 }
 
-  console.log(list);
+console.log(list);

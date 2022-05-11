@@ -7,7 +7,6 @@ value = string[string.length - 1];
 console.log(value === "g");
 
 // 2. Сделать первую и последнюю буквы в верхнем регистре
-//TODO с помощью slice
 
 value2 =
   string[0].toUpperCase() +
@@ -21,15 +20,16 @@ value = string.indexOf("string");
 console.log(value === 10);
 
 //4. Найти положение второго пробела (“вручную” ничего не считать)
-//TODO с помощью цикла
-let o;
-for (let i = 0; i < 2; ) {
-  for (o = 0; i < 2; o++)
-    if (string[o] === " ") {
-      i++;
-    }
+let str = "sdfsdfs dfsdf sdf sd fsdfs df";
+let count = 0
+for (let i = 0; i < str.length; i++) {
+  if(str[i] === " ") {
+    count++
+  }
+  if (count === 2) {
+    console.log(`white-space:${i}`)
+  }
 }
-console.log(o - 1 === 9);
 
 //5. Получить строку с 5-го символа длиной 4 буквы
 
