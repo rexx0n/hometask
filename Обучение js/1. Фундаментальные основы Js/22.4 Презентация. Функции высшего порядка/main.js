@@ -32,9 +32,25 @@ function handler2(item) {
 function handler3(item) {
   // let name = item.name
   // let age = item.age
-  return `${item.name /*name*/} is ${item.age /*age*/}, ${item.name /*name*/} is ${item.age /*age*/}`;
+  return `${item.name /*name*/} is ${item.age /*age*/}, `;
 }
-console.log(firstFunc([{age: 45, name: 'Jhon'}, {age: 20, name: 'Aaron'}], handler3))
+function handler4(item) {
+  let res = "";
+  for (let i = item.length - 1; i >= 0; i--) {
+    res += item[i];
+  }
+  return res;
+}
+console.log(firstFunc(["abc", "123"], handler4));
+console.log(
+  firstFunc(
+    [
+      { age: 45, name: "Jhon" },
+      { age: 20, name: "Aaron" },
+    ],
+    handler3
+  ) === "New value: Jhon is 45, Aaron is 20, "
+);
 console.log(
   firstFunc(["my", "name", "is", "Trinity"], handler1) ===
     "New value: MyNameIsTrinity"
@@ -57,17 +73,16 @@ let o = [
   { key: "ADMIN", value: true },
 ];
 
-
 let option = o.reduce((acc, element) => {
-  console.log(acc,element)
+  console.log(acc, element);
   let e = element.key;
   acc[e] = element.value;
-  return acc
+  return acc;
 }, {});
 
 c = a.reduce((a, e) => {
   a.push(e * 10);
-  return  a
+  return a;
 }, []);
 console.log(c);
 /*2. Написать аналог метода every. Создайте функцию every, она должна принимать первым аргументом массив чисел (обязательно проверьте что передан массив) вторым аргументом callback (обязательно проверьте что передана функция)
@@ -75,12 +90,12 @@ console.log(c);
  
 Что такое метод every можно прочитать здесь и ниже в презентации тоже о них идет речь.
 */
-function every (arr, callback) {
-
-}
-console.log(every([1,7,5,8], (el,index, arr) => {
-  if (el >=5) {
-    return true
-  }
-  return false
-}))
+function every(arr, callback) {}
+console.log(
+  every([1, 7, 5, 8], (el, index, arr) => {
+    if (el >= 5) {
+      return true;
+    }
+    return false;
+  })
+);
