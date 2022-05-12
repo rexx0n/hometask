@@ -30,8 +30,11 @@ function handler2(item) {
   return item * 10 + ", ";
 }
 function handler3(item) {
-  return;
+  // let name = item.name
+  // let age = item.age
+  return `${item.name /*name*/} is ${item.age /*age*/}, ${item.name /*name*/} is ${item.age /*age*/}`;
 }
+console.log(firstFunc([{age: 45, name: 'Jhon'}, {age: 20, name: 'Aaron'}], handler3))
 console.log(
   firstFunc(["my", "name", "is", "Trinity"], handler1) ===
     "New value: MyNameIsTrinity"
