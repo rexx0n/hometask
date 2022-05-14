@@ -90,9 +90,13 @@ console.log(c);
  
 Что такое метод every можно прочитать здесь и ниже в презентации тоже о них идет речь.
 */
-function every(arr, callback) {}
+function every(arr, callback) {
+  for (let i = 0; i < arr.length; i++) {
+    return callback(arr[i], i, arr);
+  }
+}
 console.log(
-  every([1, 7, 5, 8], (el, index, arr) => {
+  every([5, 7, 1, 8], (el, index, arr) => {
     if (el >= 5) {
       return true;
     }
