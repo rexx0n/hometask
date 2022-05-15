@@ -30,3 +30,44 @@ const price = {
 };
 console.log(price.getPrice());
 console.log(price.getPriceWithDiscount());
+// 3. Создать объект, у которого будет поле высота и метод “увеличить
+// высоту на один”. Метод должен возвращать новую высоту:
+// object.height = 10;
+// object.inc();
+// object.height; // 11;
+const object = {
+  height: 10,
+  inc: function () {
+    return this.height + 1;
+  },
+};
+console.log(object.height);
+console.log(object.inc());
+console.log(object.height);
+
+// 4. Создать объект “вычислитель”, у которого есть числовое свойство
+// “значение” и методы “удвоить”, “прибавить один”, “отнять один”.
+// Методы можно вызывать через точку, образуя цепочку методов:
+// const numerator = {
+//     value: 1,
+//     double: function () {...},
+//     plusOne: function () {...},
+//     minusOne: function () {...},
+// }
+// numerator.double().plusOne().plusOne().minusOne();
+// numerator.value // 3
+const numerator = {
+  value: 1,
+  double: function () {
+    return this.value * 2;
+  },
+  plusOne: function () {
+    return this.value + 1;
+  },
+  minusOne: function () {
+    return this.value - 1;
+  },
+};
+console.log(numerator.double()..plusOne());
+
+
