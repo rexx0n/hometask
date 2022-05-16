@@ -68,6 +68,16 @@ const numerator = {
     return this.value - 1;
   },
 };
-console.log(numerator.double()..plusOne());
+console.log(numerator.double());
 
 
+// Создать объект с розничной ценой и количеством продуктов. Этот
+// объект должен содержать метод для получения общей стоимости
+// всех товаров (цена * количество продуктов)
+
+const company = {
+  price: 10,
+  quantity: 25,
+  getAll: function () {return this.price * this.quantity}
+};
+console.log(company.getAll())
