@@ -70,14 +70,27 @@ const numerator = {
 };
 console.log(numerator.double());
 
-
 // Создать объект с розничной ценой и количеством продуктов. Этот
 // объект должен содержать метод для получения общей стоимости
 // всех товаров (цена * количество продуктов)
-
+function getAll() {
+  return this.price * this.quantity;
+}
 const company = {
   price: 10,
   quantity: 25,
-  getAll: function () {return this.price * this.quantity}
+  getAll,
 };
-console.log(company.getAll())
+console.log(company.getAll());
+
+//Создать объект из предыдущей задачи. Создать второй объект,
+// который описывает количество деталей и цену за одну деталь. Для
+// второго объекта нужно узнать общую стоимость всех деталей, но
+// нельзя создавать новые функции и методы. Для этого
+// “позаимствуйте” метод из предыдущего объекта.
+const company1 = {
+  quantity: 10,
+  price: 20,
+  getAll,
+};
+console.log(company1.getAll());
