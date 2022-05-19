@@ -1,3 +1,4 @@
+'use strict'
 // Создать объект, который описывает ширину и высоту
 // прямоугольника, а также может посчитать площадь фигуры:
 // const rectangle = {width:..., height:..., getSquare:...};
@@ -59,27 +60,31 @@ console.log(object.height);
 const numerator = {
   value: 1,
   double: function () {
-    return this.value * 2;
+    this.value = this.value * 2;
+    return this;
   },
   plusOne: function () {
-    return this.value + 1;
+    this.value++;
+    return this;
   },
   minusOne: function () {
-    return this.value - 1;
+    this.value--;
+    return this;
   },
 };
-console.log(numerator.double());
+console.log(numerator.double().plusOne().plusOne().minusOne());
+console.log(numerator.value === 3);
 
 // Создать объект с розничной ценой и количеством продуктов. Этот
 // объект должен содержать метод для получения общей стоимости
 // всех товаров (цена * количество продуктов)
-function getAll() {
-  return this.price * this.quantity;
-}
+
 const company = {
   price: 10,
   quantity: 25,
-  getAll,
+  getAll() {
+    return this.price * this.quantity;
+  },
 };
 console.log(company.getAll());
 
@@ -91,13 +96,32 @@ console.log(company.getAll());
 const company1 = {
   quantity: 10,
   price: 20,
-  getAll,
+  getAll: company.getAll,
 };
 console.log(company1.getAll());
 // Даны объект и функция:
-let sizes = {width: 5, height: 10},
-getSquare = function () {return this.width * this.height};
+let sizes = { width: 5, height: 10 },
+  getSquare = function () {
+    console.log(this);
+    return this.width * this.height;
+  };
+  
+ console.log(getSquare.call(sizes)); 
 // Не изменяя функцию или объект, получить результат функции
 // getSquare для объекта sizes
-console.log(sizes.getSquare())
 
+
+// 4.
+let element = {
+  height: 25,
+  getHeight: function () {
+    return this.height;
+  },
+};
+
+let getElementHeight = element.getHeight;
+getElementHeight = getElementHeight.bind(element)  
+console.log(getElementHeight());
+
+// Измените функцию getElementHeight таким образом, чтобы можно
+// было вызвать getElementHeight() и получить 25.

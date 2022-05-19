@@ -97,11 +97,14 @@ let wordle = {
     i = Math.round(i);
     this.word = this.dict[i];
   },
-  init() {
+  init(...arg) {
     this.setRandomWord();
     document
       .querySelector(".btn")
       .addEventListener("click", this.onPoleWrite.bind(this));
+      this.onPoleWrite(...arg)
+     // this.onPoleWrite.call(this,...arg)
+     this.onPoleWrite.applay(this, arguments)
   },
   dict: ["ложка", "рюмка", "ранец", "стиль", "кошка", "ферма", "червь", "кефир", "марка", "олимп", "ярлык", "шалаш"],
   word: null,
