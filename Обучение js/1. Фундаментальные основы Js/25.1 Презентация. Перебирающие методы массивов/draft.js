@@ -103,4 +103,10 @@ const totalBalance = users.reduce((acc, user) => {
 
 //some/ every
 const isMale = users.some(user => user.gender === "male")// есть ли мужчины
-const isAllMale = users.every(user => users.gender === "male")// все ли мужчины
+const isAllMale = users.every(user => user.gender === "male")// все ли мужчины
+
+//find
+const user = users.find(user => user.name === "Valencia Carrillo")
+console.log(user)// вернет обьект где находиться это имя
+
+//sort
