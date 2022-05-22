@@ -79,11 +79,28 @@ const users = [
   }
 ];
 
+//forEach
 users.forEach((user, i, arr) => {
     console.log(user, i , arr)//user- Элемент массива i-index arr-сам массив
 })
 
-
+//filter
 //получит пользователей чем возвраст меньше 30 
 const userLess30 = users.filter(user => user.age < 30)
 console.log(userLess30)
+
+//map
+const userName = users.map((user) => user.name) 
+console.log(userName)// новый массив с именами
+userName = users.map(user => ({name: user.name, age: user.age}))
+console.log(userName)// новый массив с именами и возрастом 
+
+//reduce
+//получить сумму баланса
+const totalBalance = users.reduce((acc, user) => {
+  return acc += user.balance
+}, 0)// принимает два аргумента колбэк и стартовое значение, сам колбэк принимает acc-стартовое значение переменая в которой будет храниться результат user-элемент массива
+
+//some/ every
+const isMale = users.some(user => user.gender === "male")// есть ли мужчины
+const isAllMale = users.every(user => users.gender === "male")// все ли мужчины
