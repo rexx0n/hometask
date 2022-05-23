@@ -45,3 +45,9 @@ function sob (arr) {
     return a
 }
 console.log(sob(arrStr))
+
+
+//1. Отсортируйте массив массивов так, чтобы вначале располагались наименьшие массивы (размер массива определяется его длиной): [  [14, 45],  [1],  ['a', 'c', 'd']  ] → [ [1], [14, 45], ['a', 'c', 'd'] ]
+const arr4 = [  [14, 45],  [1],  ['a', 'c', 'd']  ]
+arr4.sort( (prev, next) => prev.length - next.length)
+console.log(JSON.stringify(arr4) )
