@@ -62,3 +62,23 @@ const pc = [
 // Отсортировать их по возрастающему количеству ядер (cores).
 pc.sort( (prev,next) => prev.info.cores - next.info.cores)
 console.log(JSON.stringify(pc))
+
+// 3. Создать функцию, которая будет принимать массив продуктов и две цены. Функция должна вернуть все продукты, цена которых находится в указанном диапазоне, и сортировать от дешевых к дорогим:
+
+let products = [
+    {title: 'prod1', price: 5.2}, 
+    {title: 'prod2', price: 0.18},
+    {title: 'prod3', price: 15},
+    {title: 'prod4', price: 25},
+    {title: 'prod5', price: 18.9},
+    {title: 'prod6', price: 8},
+    {title: 'prod7', price: 19},
+    {title: 'prod8', price: 63}
+];
+
+function filterCollection (arr, price1, price2) {
+    let a = arr.filter(prod => prod.price >= price1 && prod.price <= price2)
+    return a.sort((prev,next) => prev.price - next.price)
+}
+
+ console.log( JSON.stringify( filterCollection(products, 15, 30))) //→ [{...price: 15}, {...price: 18.9}, {...price: 19}, {...price: 25}]
