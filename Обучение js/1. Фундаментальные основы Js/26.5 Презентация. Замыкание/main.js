@@ -25,3 +25,15 @@ console.log(minus()(6) === -6)
 // multiply(3); // 12 (4 * 3)
 // multiply(10); // 120 (12 * 10)
 
+function multiplyMaker (val = 0) {
+    let x = val 
+    return function (num = 0) {
+        return x *= num
+    }
+}
+const multiply = multiplyMaker(2);
+
+console.log(multiply(2) === 4)
+console.log(multiply(1) === 4)
+console.log(multiply(3) === 12)
+console.log(multiply(10) === 120)
