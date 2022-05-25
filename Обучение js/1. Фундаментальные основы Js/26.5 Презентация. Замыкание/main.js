@@ -16,3 +16,12 @@ console.log(minus(5)(6) === -1)
 console.log(minus(10)() === 10)
 console.log(minus()() === 0)
 console.log(minus()(6) === -6)
+
+// Реализовать функцию, которая умножает и умеет запоминать возвращаемый результат между вызовами:
+// function multiplyMaker ...
+// const multiply = multiplyMaker(2);
+// multiply(2); // 4 (2 * 2)
+// multiply(1); // 4 (4 * 1)
+// multiply(3); // 12 (4 * 3)
+// multiply(10); // 120 (12 * 10)
+
