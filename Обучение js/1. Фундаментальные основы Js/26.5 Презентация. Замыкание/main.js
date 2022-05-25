@@ -37,3 +37,42 @@ console.log(multiply(2) === 4)
 console.log(multiply(1) === 4)
 console.log(multiply(3) === 12)
 console.log(multiply(10) === 120)
+
+// 3. Реализовать модуль, который работает со строкой и имеет методы:
+// a. установить строку
+// i. если передано пустое значение, то установить пустую строку
+// ii. если передано число, число привести к строке
+// b. получить строку
+// c. получить длину строки
+// d. получить строку-перевертыш
+// Пример:
+// модуль.установитьСтроку(‘abcde’);
+// модуль.получитьСтроку(); // ‘abcde’
+// модуль.получитьДлину(); // 5
+
+function module () {
+    let x
+    return {
+        instStr (value = "") {
+            if (value === Number) {
+                return x = String(value)
+            }
+            return  x = String(value)
+        },
+        getStr () {
+            return console.log(x)
+        },
+        getLengthStr () {
+            return console.log(x.length)
+        },
+        getReverse () {
+            return console.log(x.split("").reverse().join(""))
+        }
+        
+    }
+}
+const mod = module()
+console.log(mod.instStr("hello"))
+mod.getStr()
+mod.getLengthStr()
+mod.getReverse()
