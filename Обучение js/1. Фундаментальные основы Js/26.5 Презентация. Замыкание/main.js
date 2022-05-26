@@ -76,3 +76,40 @@ console.log(mod.instStr("hello"))
 mod.getStr()
 mod.getLengthStr()
 mod.getReverse()
+// 4. Создайте модуль “калькулятор”, который умеет складывать, умножать, вычитать, делить и возводить в степень. Конечное значение округлить до двух знаков после точки (значение должно храниться в обычной переменной, не в this).
+
+// модуль.установитьЗначение(10); // значение = 10
+// модуль.прибавить(5); // значение += 5
+// модуль.умножить(2); // значение *= 2
+// модуль.узнатьЗначение(); // вывести в консоль 30 (здесь надо округлить)
+
+// Также можно вызывать методы цепочкой:
+// модуль.установитьЗначение(10).вСтепень(2).узнатьЗначение(); /
+
+function calculator () {
+    let value
+    return {
+        instValue (num) {
+            value = num
+            return value
+        },
+        getPlus (num) {
+            value += num
+            return value
+        },
+        getMultiply (num) {
+            value *= num
+            return value
+        },
+        getValue () {
+            
+            return value.toFixed()
+        }
+    }
+}
+const calc = calculator()
+console.log(calc.instValue(10))
+console.log(calc.getPlus(5.3))
+console.log(calc.getMultiply(2))
+console.log(calc.getValue())
+console.log(calc.instValue(2))
