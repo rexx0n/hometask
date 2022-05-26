@@ -5,3 +5,11 @@
 //   first: ‘a’,
 //   other: [‘b’, ‘c’, ‘d’]
 // }
+function sawsda (a) {
+    const [first,...other] = a
+    return {
+        first,
+        other
+    }
+}
+console.log(sawsda (["sasda", "asdas", "asdas", "asdasdas"]))
