@@ -6,11 +6,13 @@
 // minus()(); // 0
 // Подсказка, функция minus должна возвращать другую функцию.
 function minus (num = 0){
+    let g = ['ewqeqweqweqe']
     return function(num2 = 0) {
+        console.log(g)
         return num - num2
     }
 }
-
+let a = minus(10)
 console.log(minus(10)(6) === 4)
 console.log(minus(5)(6) === -1)
 console.log(minus(10)() === 10)
@@ -113,3 +115,4 @@ console.log(calc.getPlus(5.3))
 console.log(calc.getMultiply(2))
 console.log(calc.getValue())
 console.log(calc.instValue(2))
+a(5)
