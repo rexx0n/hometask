@@ -11,3 +11,13 @@
 // Для навигации по DOM использовать методы,
 // которые возвращают только элементы
 
+console.log(document.querySelector("html"))
+console.log(document.documentElement)
+
+console.log(document.querySelector("body"))
+console.log(document.body)
+
+console.log(document.body.children)
+
+console.log(document.querySelector("div"))
+
