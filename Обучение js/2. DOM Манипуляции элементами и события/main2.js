@@ -18,3 +18,5 @@ console.log(isParent(document.querySelector('ul'), document.querySelector('mark'
 const div = document.querySelector('p')
 console.log(div.querySelector("ul"))
 console.log(document.body.children[0].contains(document.querySelector('ul')))
+
+// 2. Получить список всех ссылок, которые не находятся внутри списка ul

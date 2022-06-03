@@ -21,3 +21,10 @@ console.log(document.body.children)
 
 console.log(document.querySelector("div"))
 
+if (document.body.children) {
+  const children = document.body.children;
+
+  for (var i = 1; i < children.length - 1; ++i) {
+    console.log(children[i])
+  }
+}
