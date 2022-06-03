@@ -20,3 +20,6 @@ console.log(div.querySelector("ul"))
 console.log(document.body.children[0].contains(document.querySelector('ul')))
 
 // 2. Получить список всех ссылок, которые не находятся внутри списка ul
+let link = document.querySelectorAll('body a');
+
+console.log([...link].filter(link => !link.closest('ul')));
