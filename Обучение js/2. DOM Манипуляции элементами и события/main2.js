@@ -8,6 +8,13 @@
  // false так ul НЕ является родительским элементом для mark
 // Функция принимает только DOM объекты.
 
-function isParent (parent1, parent2) {
-    if
+function isParent (parent, child) {
+    return parent.contains(child)
 }
+
+//console.log(isParent(document.body.children[0], document.querySelector('mark')))
+console.log(isParent(document.body.children[0], document.querySelector('mark')))
+console.log(isParent(document.querySelector('ul'), document.querySelector('mark')))
+const div = document.querySelector('p')
+console.log(div.querySelector("ul"))
+console.log(document.body.children[0].contains(document.querySelector('ul')))
