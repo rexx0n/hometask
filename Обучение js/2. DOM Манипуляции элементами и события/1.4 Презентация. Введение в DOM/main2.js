@@ -23,3 +23,5 @@ console.log(document.body.children[0].contains(document.querySelector('ul')))
 let link = document.querySelectorAll('body a');
 
 console.log([...link].filter(link => !link.closest('ul')));
+
+//3. Найти элемент, который находится перед и после списка ul
