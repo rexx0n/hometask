@@ -5,3 +5,14 @@ console.log(paragr.textContent)
 
 // 2. Создать функцию, которая принимает в качестве аргумента узел DOM и возвращает информацию (в виде объекта) о типе узла, об имени узла и о количестве дочерних узлов (если детей нет - 0).
 
+function info (arg) {
+    let a = arg.nodeType
+    let b = arg.nodeName
+    let child = arg.children.length
+    return {
+        a,
+        b,
+        child
+    }
+}
+console.log(info(document.querySelector("div")))
