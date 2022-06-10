@@ -16,3 +16,10 @@ function info (arg) {
     }
 }
 console.log(info(document.querySelector("div")))
+
+// 3. Получить массив, который состоит из текстового содержимого ссылок внутри списка: getTextFromUl(ul) ---> ["Link1", "Link2", "Link3"]
+function getTextFromUl (arg){
+    let a = document.querySelector(`${arg}`).textContent
+    return [a]
+}
+console.log(getTextFromUl("ul"))
