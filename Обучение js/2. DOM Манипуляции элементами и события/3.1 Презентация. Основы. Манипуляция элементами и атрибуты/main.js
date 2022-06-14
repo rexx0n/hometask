@@ -23,3 +23,9 @@ function getTextFromUl (arg){
     return [a]
 }
 console.log(getTextFromUl("ul"))
+
+
+// Найти в коде список ul и добавить класс “list”
+let ul = document.querySelector("ul").classList.add("list")
+
+//Найти в коде ссылку, находящуюся после списка ul, и добавить id=link
