@@ -27,5 +27,7 @@ console.log(getTextFromUl("ul"))
 
 // Найти в коде список ul и добавить класс “list”
 let ul = document.querySelector("ul").classList.add("list")
+console.log(ul)
 
 //Найти в коде ссылку, находящуюся после списка ul, и добавить id=link
+console.log(ul.querySelector("a").id = "link")
