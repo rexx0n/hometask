@@ -31,3 +31,6 @@ console.log(ul)
 
 //Найти в коде ссылку, находящуюся после списка ul, и добавить id=link
 console.log(ul.querySelector("a").id = "link")
+
+// 4. В параграфе заменить все дочерние текстовые узлы на “-text-” (вложенные теги должны остаться). Конечный результат:
+// -text-<a href="#">reprehendunt</a>-text-<mark>nemore</mark>-text-
