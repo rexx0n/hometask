@@ -37,7 +37,9 @@ console.log(ul);
 // 4. В параграфе заменить все дочерние текстовые узлы на “-text-” (вложенные теги должны остаться). Конечный результат:
 // -text-<a href="#">reprehendunt</a>-text-<mark>nemore</mark>-text-
 
-const paragrh =  document.querySelector("p")
-console.log(paragr.child = "-text-")
 
+
+const paragrh =  document.querySelector("p")
+console.log(paragr.textCont = "-text-")
+console.log(paragrh)
 // На li через один (начиная с самого первого) установить класс “item”
