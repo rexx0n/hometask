@@ -43,3 +43,10 @@ const paragrh =  document.querySelector("p")
 console.log(paragr.textCont = "-text-")
 console.log(paragrh)
 // На li через один (начиная с самого первого) установить класс “item”
+
+//На все ссылки в примере установить класс “custom-link”
+ const link = document.querySelectorAll("a")
+ link.forEach(element => {
+  element.classList.add("custom-link")
+ });
+console.log(link)
