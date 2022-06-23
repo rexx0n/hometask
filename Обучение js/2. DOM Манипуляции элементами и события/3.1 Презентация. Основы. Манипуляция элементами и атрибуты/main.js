@@ -32,16 +32,17 @@ let ul = document.querySelector("ul").classList.add("list");
 console.log(ul);
 
 //Найти в коде ссылку, находящуюся после списка ul, и добавить id=link
-// console.log((ul.querySelector("a").id = "link"));
+let g
+g = document.body.lastElementChild.querySelector("a");
+console.log((g));
 
 // 4. В параграфе заменить все дочерние текстовые узлы на “-text-” (вложенные теги должны остаться). Конечный результат:
 // -text-<a href="#">reprehendunt</a>-text-<mark>nemore</mark>-text-
 
-
-
 const paragrh =  document.querySelector("p")
 console.log(paragr.textCont = "-text-")
 console.log(paragrh)
+
 // На li через один (начиная с самого первого) установить класс “item”
 const ul3 = document.querySelectorAll("li")
 console.log(ul3)
