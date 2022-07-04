@@ -15,3 +15,7 @@ btn.addEventListener("mouseout", function () {
 });
 //При нажатии на любой узел документа показать в элементе с id=tag имя тега нажатого элемента.
 
+document.addEventListener("click", e => {
+    let a = e.target
+    console.log(a.id)
+})
