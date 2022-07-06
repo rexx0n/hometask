@@ -19,3 +19,5 @@ document.addEventListener("click", e => {
     let a = e.target
     console.log(a.id)
 })
+
+// При нажатии на кнопку btn-generate добавлять в список ul элемент списка Li с текстом Item + порядковый номер Li по списку, т.е Item 3, Item 4 и т.д 
