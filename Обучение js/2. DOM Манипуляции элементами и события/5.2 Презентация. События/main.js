@@ -15,9 +15,20 @@ btn.addEventListener("mouseout", function () {
 });
 //При нажатии на любой узел документа показать в элементе с id=tag имя тега нажатого элемента.
 
-document.addEventListener("click", e => {
-    let a = e.target
-    console.log(a.id)
-})
+document.addEventListener("click", (e) => {
+  let a = e.target;
+  console.log(a.id);
+});
 
-// При нажатии на кнопку btn-generate добавлять в список ul элемент списка Li с текстом Item + порядковый номер Li по списку, т.е Item 3, Item 4 и т.д 
+// При нажатии на кнопку btn-generate добавлять в список ul элемент списка Li с текстом Item + порядковый номер Li по списку, т.е Item 3, Item 4 и т.д
+
+
+let btnGenerate = document.querySelector("#btn-generate");
+let num = 3
+btnGenerate.addEventListener("click",  e => {
+  let ul = document.querySelector("ul");
+  let li = document.createElement("li");
+  li.textContent = `Item ${num}`;
+  ul.appendChild(li);
+  num++
+});
