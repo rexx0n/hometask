@@ -33,9 +33,16 @@ const tasks = [
     return acc;
   }, {});
 
-  const listContainer = document.createElement("tasks-list-section list-group");
+  const listContainer = document.querySelector("tasks-list-section list-group");
+  const form = document.forms['addTask']
+  const inputTitle = form.elements['title']
+  const inputBody = form.elements['body']
+
 
   renderAllTasks(objOfTasks);
+  form.addEventListner ('submit', onFormSubmitHandler)
+  listContainer.addEventListener('click',)
+
   function renderAllTasks(tasksList) {
     if (tasksList) {
       console.error("Передайте список задач!");
@@ -43,8 +50,7 @@ const tasks = [
     }
 
     const fragment = document.createDocumentFragment();
-    Object,
-      values(tasksList).array.forEach((task) => {
+    Object.values(tasksList).forEach((task) => {
         const li = listItemTemplate(task);
         fragment.appendChild(li);
       });
@@ -74,5 +80,29 @@ const tasks = [
     li.appendChild(deleteBtn);
     li.appendChild(article);
     return li;
+  }
+  function onFormSubmitHandler (e) {
+    e.preventDefault();
+    const titleValue = inputTitle.value
+    const bodyValue = inputBody.value
+    if(!titleValue || !bodyValue) {
+      alert("Пожалуйста введите title и body")
+      return
+    }
+    const task = createNewTask(titleValue, bodyValue);
+    const listItem = listItemTemplate(task);
+    listContainer.insertAdjacentElement('afterbegin',listItem)
+  }
+  function createNewTask(title, body) {
+    const newTask = {
+      title,
+      body,
+      completed: false,
+      _id: `task-${Math.random}`
+    }
+
+    objOfTasks[newTask._id] = newTask
+
+    return {...newTask};
   }
 })(tasks);
