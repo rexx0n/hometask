@@ -33,15 +33,16 @@ const tasks = [
     return acc;
   }, {});
 
-  const listContainer = document.querySelector("tasks-list-section list-group");
+  const listContainer = document.querySelector(".tasks-list-section .list-group");
+  console.log(listContainer)
   const form = document.forms['addTask']
   const inputTitle = form.elements['title']
   const inputBody = form.elements['body']
 
-
   renderAllTasks(objOfTasks);
-  form.addEventListner ('submit', onFormSubmitHandler)
-  listContainer.addEventListener('click',)
+  form.addEventListener("submit", onFormSubmitHandler);
+  listContainer.addEventListener("click", onDeletehandler)
+ 
 
   function renderAllTasks(tasksList) {
     if (tasksList) {
@@ -64,6 +65,7 @@ const tasks = [
       "flex-wrap",
       "mt-2"
     );
+    li.setAttribute("data-task-id", _id)
     const span = document.createElement("span");
     span.textContent = title;
     span.style.fontWeight = "bold";
@@ -104,5 +106,17 @@ const tasks = [
     objOfTasks[newTask._id] = newTask
 
     return {...newTask};
+  }
+
+  function deleteTask(id) {
+    console.log(objOfTasks[id])
+    const isConfirm = confirm ('Точно вы хотите удалить задачу')
+  }
+  function onDeletehandler({target}) {
+    if (target.classList.contains("delete-btn")){
+      const parent = target.closest("[data-task-id]")
+      
+      console.log(id)
+    }
   }
 })(tasks);
