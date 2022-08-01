@@ -32,3 +32,15 @@ xhr.addEventListener("load", () => {
 });
 xhr.send();
 //Создать форму добавления пользователя состоящая из полей name, email, username, phone, website при сабмите формы сделать POST запрос на сервер после ответа от сервера добавлять полученного пользователя на страницу.
+function getPosts(cb) {
+  let xhr = new XMLHttpRequest();
+  xhr.open("post", "index.html");
+  xhr.addEventListener("load", () => {
+    let response = JSON.parse(xhr.responseText);
+    console.log(response)
+  });
+
+ 
+
+  xhr.send();
+}

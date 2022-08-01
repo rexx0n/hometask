@@ -47,13 +47,13 @@ function cardTemplate(post) {
   cardBody.appendChild(title);
   cardBody.appendChild(article);
   card.appendChild(cardBody);
-  return card
+  return card;
 }
 
 function renderPosts(response) {
   let fragment = document.createDocumentFragment();
   response.forEach((post) => {
-    const card = cardTemplate(post)
+    const card = cardTemplate(post);
     fragment.appendChild(card);
   });
   container.appendChild(fragment);
@@ -71,6 +71,46 @@ btnAddPost.addEventListener("click", (e) => {
   };
   createPost(newPost, (response) => {
     const card = cardTemplate(response);
-    container.insertAdjacentElement("afterbegin", card)
+    container.insertAdjacentElement("afterbegin", card);
   });
 });
+
+//обработка ошибок
+
+function myHttpRequest({ method, url } = {}, cb) {
+  try {
+      let xhr = new XMLHttpRequest();
+      xhr.open(method, url);
+      xhr.addEventListener("load", () => {
+        if (Math.floor(xhr.status / 100) !== 2) {
+          cb(`Error. Status code:${xhr.status}`, xhr);
+          return;
+        }
+        let response = JSON.parse(xhr.responseText);
+        cb(null, response);
+      });
+
+      xhr.addEventListener("error", () => {
+        cb(`Error. Status code:${xhr.status}`, xhr);
+      });
+
+      xhr.send();
+  } catch (error) {
+    cb(error)
+  }
+
+}
+
+myHttpRequest(
+  {
+    method: "GET",
+    url: "https://jsonplaceholder.typicode.com/posts",
+  },
+  (err, res) => {
+    if (err) {
+      console.log(err)
+      return
+    }
+    console.log(res);
+  }
+);
