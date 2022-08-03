@@ -44,3 +44,7 @@ function getPosts(cb) {
 
   xhr.send();
 }
+
+
+axios.post()
+axios.get('google.com')

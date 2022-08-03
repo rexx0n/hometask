@@ -100,7 +100,7 @@ const tasks = [
       title,
       body,
       completed: false,
-      _id: `task-${Math.random}`
+      _id: `task-${Math.random()}`
     }
 
     objOfTasks[newTask._id] = newTask
@@ -126,7 +126,7 @@ const tasks = [
       const parent = target.closest("[data-task-id]")
       const id = parent.dataset.taskId
       const confirmed =  deleteTask(id)
-      deleteTaskFromHtml(parent, confirmed)
+      deleteTaskFromHtml(confirmed, parent);
     }
-  }
+  } 
 })(tasks);
