@@ -37,14 +37,11 @@ function getPosts(cb) {
   xhr.open("post", "index.html");
   xhr.addEventListener("load", () => {
     let response = JSON.parse(xhr.responseText);
-    console.log(response)
+    console.log(response);
   });
-
- 
 
   xhr.send();
 }
 
-
-axios.post()
-axios.get('google.com')
+axios.post();
+axios.get("google.com");

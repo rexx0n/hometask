@@ -14,4 +14,4 @@ function Product(brand, price, discount) {
 const apple = new Product("Apple", 100, 15)
 const samsung = new Product("Samsung", 200, 25)
 console.log(apple)
-console.log(samsung)
+console.log(samsung.getPriceWithDiscount())

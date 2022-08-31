@@ -5,13 +5,25 @@
 // prom.then(console.log);
 // // Ok!
 
-function promiseCreator(time, value) {
-  const promise = new Promise(function (resolve, reject) {
-    setTimeout(function () {
-      resolve(value);
-    }, time);
-  });
-  return promise;
+function getUsers() {
+    let promise = fetch("https://jsonplaceholder.typicode.com/users")
+      .then((responce) => responce.json())
+      .catch(() => {
+       throw new Error("Не получилось развезолвить");
+      });
+      let promise2 = fetch("https://jsoplaceholder.typicode.com/posts")
+        .then((responce) => responce.json())
+        .catch(() => {
+          throw new Error("Не получилось развезолвить");
+        });
+      
+  return Promise.allSettled([promise,promise2]);
 }
-const prom = promiseCreator(500, "Ok");
-prom.then(console.log);
+
+getUsers()
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
