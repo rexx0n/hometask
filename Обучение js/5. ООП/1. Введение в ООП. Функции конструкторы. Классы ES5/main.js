@@ -12,6 +12,14 @@ function Planet(name) {
 // Например:
 // var earth = new PlanetWithSatellite('earth', 'moon');
 // earth.getName(); // 'Planet name is earth. The satellite is moon’
+function PlanetWithSatellite (name,satelliteName) {
+    Planet.call(this)
+    this.getName = function () {
+        return `Planet name is ${name}.The satellite is ${satelliteName}`;
+    }
+}
+var earth = new PlanetWithSatellite('earth', 'moon');
+console.log(earth.getName()); // 'Planet name is earth. The satellite is moon’
 
 
 
@@ -37,8 +45,11 @@ console.log(a);
 console.log(a.instFloors(7));
 console.log(a.getFloors);
 
+let pa = Object.create(Build)
+
+console.log(pa) 
+
 function apartmentHouse (floors, apartments) {
-    Build.call(this)
     this.floors = floors
     this.apartments = apartments
     this.getNumberApartments = function () {
@@ -46,8 +57,42 @@ function apartmentHouse (floors, apartments) {
     }
 }
 
+let animal = {
+    eats:true
+}
+function Rabbit (name) {
+    this.name = name
+}
+Rabbit.prototype = animal
+let rabbit = new Rabbit ("White Rabbit")
+console.log(rabbit.eats)
+
+
 const b = new apartmentHouse(5, 4)
 console.log(b)
 console.log(b.getNumberApartments())
 
 
+const parent = {
+    who: "cat",
+    whatSay: function () {
+      return "Meow";
+    },
+  },
+  child = Object.create(parent);
+child.name = "Vasya";
+
+console.log(child)
+console.log(parent)
+
+// 3. Создать класс “Мебель” с базовыми свойствами “имя”, “цена” и методом “получить информацию” (метод должен вывести имя и цену). Метод должен быть объявлен с помощью прототипов (Func.prototype...). 
+// Создайте наследника класса “Мебель” под названием “ОфиснаяМебель”. Придумайте ему несколько свойству, которые будут характерны только для этого класса. Метод “получить информацию” должен учитывать и добавленное вами новое свойство.
+// Задача на переопределение метода у экземпляров класса.
+
+function Furniture (name,price) {
+    this.name = name
+    this.price = price
+    Furniture.prototype.info = function () {return `${name},${price}`}
+}
+let fur = new Furniture("chair",1000)
+console.log(fur.info())
