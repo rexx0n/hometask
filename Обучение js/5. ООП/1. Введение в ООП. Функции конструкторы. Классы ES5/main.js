@@ -80,7 +80,7 @@ const parent = {
     },
   },
   child = Object.create(parent);
-child.name = "Vasya";
+child.who = "Vasya";
 
 console.log(child)
 console.log(parent)
@@ -96,3 +96,8 @@ function Furniture (name,price) {
 }
 let fur = new Furniture("chair",1000)
 console.log(fur.info())
+
+class OfficeFurniture extends Furniture {
+    model = 2
+ }
+ let office = new OfficeFurniture("office",10000)
