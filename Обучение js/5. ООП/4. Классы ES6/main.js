@@ -43,7 +43,7 @@ class Calculator {
     return (this._num = this._num + nume);
   }
   subtract(nume) {
-    return (this._num = this._num - nume);
+    return (this._num = this._num - nume);//почему()
   }
   multiply(nume) {
     return (this._num = this._num * nume);
@@ -52,10 +52,10 @@ class Calculator {
     return (this._num = this._num / nume);
   }
   set num (name) {
-    this._num = name
+    this._num = name//зачем
   }
   get num () {
-    return this._num
+    return this._num//Зачем
   }
 }
 

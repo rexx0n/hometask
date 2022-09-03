@@ -24,3 +24,23 @@ class ProductEs {
 }
 
 const newProduct = new ProductEs ("samsung", 200,10)
+//Наследование
+
+class UserEs {
+    constructor (firstName, lastName) {
+        this.firstName = firstName
+        this.lastName = lastName
+    }
+    getFullName () {
+        return `${this.firstName} ${this.lastName}`
+    }
+}
+
+class CustomerEs extends UserEs {
+  constructor(firstName, lastName,memberShip) {
+    super(firstName,lastName)
+    this.memberShip = memberShip
+  }
+}
+
+const CustomerEs = new CustomerEs ("")
