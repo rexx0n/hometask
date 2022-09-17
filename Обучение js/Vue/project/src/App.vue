@@ -1,15 +1,20 @@
 <template>
   <div class="app">
     <h1>Страница с постами</h1>
-    <my-button @click="fetchPosts">Получить посты</my-button>
-    <my-button style="margin: 15px, 0" @click="showDialog"
-      >Создать пост</my-button
-    >
+    <div class="app__btns">
+      <my-button @click="showDialog">Создать пост</my-button>
+      <my-select 
+      v-model="selectedSord"
+      :options="sortOptions"
+       />
+    </div>
+
     <my-dialog v-model:show="dialogVisible">
       <post-form @create="createPost" />
     </my-dialog>
 
-    <post-list @remove="removePost" :posts="posts" />
+    <post-list v-if="!isPostsLoading" @remove="removePost" :posts="posts" />
+    <div v-else>Идет загрузка...</div>
   </div>
 </template>
 
@@ -18,18 +23,24 @@ import PostForm from "./components/PostForm.vue";
 import PostList from "@/components/PostList.vue";
 import MyButton from "./components/UI/MyButton.vue";
 import axios from "axios";
+import MySelect from "@/components/UI/MySelect";
 export default {
   components: {
     PostForm,
     PostList,
     MyButton,
+    MySelect,
   },
   data() {
     return {
-      posts: [
-      ],
+      posts: [],
       dialogVisible: false,
-      modificatorValue: "",
+      isPostsLoading: false,
+      selectedSort: "",
+      sortOptions: [
+        {value: 'title', name:"По названию"},
+        {value: 'body', name:"По описанию"}
+      ]
     };
   },
   methods: {
@@ -46,15 +57,20 @@ export default {
     },
     async fetchPost() {
       try {
+        this.isPostsLoading = true;
         const response = await axios.get(
           "https://jsonplaceholder.typicode.com/posts?_limit=10"
         );
-        console.log(response)
-        this.posts = response.data
+        this.posts = response.data;
+        this.isPostsLoading = false;
       } catch (e) {
         alert("Ошибка");
+      } finally {
       }
     },
+  },
+  mounted() {
+    this.fetchPost();
   },
 };
 </script>
@@ -68,5 +84,10 @@ export default {
 
 .app {
   padding: 20px;
+}
+.app__btns {
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
 }
 </style>
