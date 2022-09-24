@@ -4,7 +4,7 @@
     <option 
     v-for="option in options"
      :key="option.value" 
-     value="option.value">
+     :value="option.value">
      {{option.name}}
      </option>
   </select>
@@ -23,7 +23,7 @@ export default {
     },
   },
   methods: {
-    chamgeOption (event) {
+    changeOption (event) {
         this.$emit("update:modelValue", event.target.value         )
     }
   }
