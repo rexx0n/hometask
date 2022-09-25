@@ -33,9 +33,9 @@
 </template>
 
 <script>
-import PostForm from "./components/PostForm.vue";
+import PostForm from "@/components/PostForm.vue";
 import PostList from "@/components/PostList.vue";
-import MyButton from "./components/UI/MyButton.vue";
+import MyButton from "@/components/UI/MyButton.vue";
 import axios from "axios";
 import MySelect from "@/components/UI/MySelect";
 export default {
