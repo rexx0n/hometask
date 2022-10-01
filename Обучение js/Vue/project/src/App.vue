@@ -1,14 +1,18 @@
 <template>
+    <NavBar></NavBar>
   <div class="app">
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {};
+import NavBar from "@/components/UI/NavBar.vue"
+export default {
+  components:{NavBar}
+};
 </script>
 
-<style scoped>
+<style>
 * {
   margin: 0;
   padding: 0;
