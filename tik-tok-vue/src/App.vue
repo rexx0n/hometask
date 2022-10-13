@@ -10,10 +10,13 @@
       <p>{{msg}}</p>
     </div>
   </div>
+  <div @click="increment">
+  Count is: {{ count }}
+</div>
 </template>
 
 <script setup>
-import {ref} from "vue";
+import {ref, onMounted} from "vue";
 //X X X
 //X X X
 //X X X
@@ -27,12 +30,20 @@ function test() {
 
 let msg = ref('sdjhgfkjdfhsdhjfkhsd');
 
+const count = ref(0)
+function increment() {
+  count.value++
+}
+
+onMounted(() => {
+  console.log(`The initial count is ${count.value}.`)
+})
 </script>
 
 <style>
 body {
   margin: 0 auto;
-  background-color: #7029ff;
+  background-color: #515052;
 }
 .tiktok {
   display: flex;
