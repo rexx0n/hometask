@@ -1,9 +1,10 @@
 <template>
   <div>
     <h1>Письменные столы</h1>
+    hhhh
     <ul>
       <li>
-        <product-card />
+       <ProductCard></ProductCard>
       </li>
     </ul>
   </div>
@@ -12,7 +13,6 @@
 <script>
 import ProductCard from '@/components/ProductCard.vue'
 export default {
-  name: "ProductCard",
   components:{ProductCard},
   data() {
     return {
