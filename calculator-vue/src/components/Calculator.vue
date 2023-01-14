@@ -53,6 +53,9 @@ export default {
   min-height: 500px;
   flex-direction: column;
   justify-content: flex-end;
+  box-shadow: 1px 1px 0px 7px grey;
+  padding-bottom: 10px;
+
 }
 .marks {
   background: orange;
