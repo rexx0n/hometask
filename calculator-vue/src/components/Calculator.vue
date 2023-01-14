@@ -1,26 +1,26 @@
 <template>
   <div class="calc">
-  <div>${}</div>
+  <div class="screen">{{ num }}</div>
     <div class="flex">
-      <button class="lightGray">AC</button>
-      <button class="lightGray">+/-</button>
-      <button class="lightGray">%</button>
-      <button class="marks">÷</button>
-      <button>7</button>
-      <button>8</button>
-      <button>9</button>
-      <button class="marks">х</button>
-      <button>4</button>
-      <button>5</button>
-      <button>6</button>
-      <button class="marks">-</button>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
+      <button v-on:click="reset" class="lightGray">AC</button>
+      <button v-on:click="addNumber" class="lightGray">+/-</button>
+      <button v-on:click="addNumber" class="lightGray">%</button>
+      <button v-on:click="addNumber" class="marks">÷</button>
+      <button v-on:click="addNumber">7</button>
+      <button v-on:click="addNumber">8</button>
+      <button v-on:click="addNumber">9</button>
+      <button v-on:click="addNumber" class="marks">х</button>
+      <button v-on:click="addNumber">4</button>
+      <button v-on:click="addNumber">5</button>
+      <button v-on:click="addNumber">6</button>
+      <button v-on:click="addNumber" class="marks">-</button>
+      <button v-on:click="addNumber">1</button>
+      <button v-on:click="addNumber">2</button>
+      <button v-on:click="addNumber">3</button>
       <button class="marks">+</button>
-      <button class="padding">0</button>
-      <button>.</button>
-      <button class="marks">=</button>
+      <button v-on:click="addNumber" class="padding">0</button>
+      <button v-on:click="addNumber">.</button>
+      <button v-on:click="addNumber" class="marks">=</button>
     </div>
   </div>
 </template>
@@ -29,6 +29,20 @@
 export default {
   // eslint-disable-next-line
   name: 'сalculator',
+  data() {
+    return {
+      num:0,
+      mark:"",
+    }
+  },
+  methods: {
+    addNumber (event) {
+      this.num = event.target.textContent
+    },
+    reset () {
+      this.num = 0
+    }
+  }
   
 }
 </script>
@@ -36,6 +50,11 @@ export default {
 <style scoped>
 .lightGray {
   background: lightgray;
+}
+.screen {
+  font-size: 40px;
+  color: white;
+  padding-right: 20px;
 }
 .flex{
   margin: 0 auto;
@@ -49,6 +68,7 @@ export default {
   margin: 0 auto;
   background: black;
   border-radius: 20px;
+  align-items: flex-end;
   max-width: 245px;
   min-height: 500px;
   flex-direction: column;
@@ -61,8 +81,8 @@ export default {
   background: orange;
 }
 .padding {
-  padding-right: 66px;
-  padding-left: 23px;
+  padding-right: 69px;
+  padding-left: 20px;
 }
 button {
   border-radius: 50px;
