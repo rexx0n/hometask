@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import tikTok from '@/components/tikTok'
+import tikTok from '@/components/TikTok'
 export default {
   name: 'App',
   components: {
