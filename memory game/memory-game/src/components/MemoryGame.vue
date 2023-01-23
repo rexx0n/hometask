@@ -2,11 +2,13 @@
   <h1>{{ winner }}</h1>
   <p>Осталось открыть {{ countClosedCard }}</p>
   <div class="flex">
-    <div @click="onClick(i,index)" class="item" v-for="(i,index) in pole" :key="index">
-      <template v-if="value === index">{{ i }}</template>
-      <template v-if="valueTwo === index">{{ i }}</template>
-      <template v-if="open[index]">{{ i }}</template>
-    </div>
+    <transition-group name="itemAnimation">
+      <div @click="onClick(i,index)" class="item" v-for="(i,index) in pole" :key="index">
+        <template v-if="value === index">{{ i }}</template>
+        <template v-if="valueTwo === index">{{ i }}</template>
+        <template v-if="open[index]">{{ i }}</template>
+      </div>
+    </transition-group>
   </div>
   <select @change="onChange" v-model="size">
     <option :value="6">Easy</option>
@@ -33,7 +35,7 @@ export default {
     onChange() {
       this.reset()
       this.pole = this.generatePole()// this.pole = this.generatepole(this.size)//в зависимости от параметра size возвращает массив[1,1,]
-       this.pole = this.shuffle()   // this.pole = this.random(this.pole)
+      this.pole = this.shuffle()   // this.pole = this.random(this.pole)
       // value open сбросить
     },
     shuffle() {
@@ -45,7 +47,7 @@ export default {
         this.pole.push(i)
         this.pole.push(i)
       }
-      console.log(this.pole)
+
       return this.pole
     },
     reset() {
@@ -116,6 +118,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.on-hover:hover + .hidden-block {
+  opacity: 1;
+  transition: 1s;
+}
+
 .item {
   display: flex;
   justify-content: center;
@@ -126,6 +133,15 @@ export default {
   box-shadow: inset 1px 1px 8px 14px #d2c2ac;
   background: #CCB494;
   margin: 10px;
+}
+
+.itemAnimation-enter-active, .itemAnimation-leave-active {
+  transition: all .5s;
+}
+
+.itemAnimation-enter, .itemAnimation-leave-to {
+  transform: translateX(50px);
+  opacity: 0;
 }
 
 .flex {
