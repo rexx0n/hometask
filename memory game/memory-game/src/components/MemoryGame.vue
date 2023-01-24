@@ -1,62 +1,65 @@
 <template>
-  <h1>{{ winner }}</h1>
-  <p>Осталось открыть {{ countClosedCard }}</p>
-  <div class="flex">
-    <transition-group name="itemAnimation">
-      <div @click="onClick(i,index)" class="item" v-for="(i,index) in pole" :key="index">
-        <template v-if="value === index">{{ i }}</template>
-        <template v-if="valueTwo === index">{{ i }}</template>
-        <template v-if="open[index]">{{ i }}</template>
-      </div>
-    </transition-group>
+  <h1>{{ winner || 'Игра на память' }}</h1>
+  <p>Задача: найти одинаковые цифры, осталось найти {{ countClosedCard }}</p>
+  <div class="main">
+    <div class="flex">
+      <transition-group name="itemAnimation">
+        <div @click="onClick(i,index)" class="item" v-for="(i,index) in pole" :key="index">
+          <template v-if="value === index">{{ i }}</template>
+          <template v-if="valueTwo === index">{{ i }}</template>
+          <template v-if="open[index]">{{ i }}</template>
+        </div>
+      </transition-group>
+    </div>
+    <div class="menu">
+      <select @change="onChange" v-model="size">
+        <option :value="6">Easy</option>
+        <option :value="18">Medium</option>
+        <option :value="36">Hard</option>
+      </select>
+      <button>Заново</button>
+    </div>
   </div>
-  <select @change="onChange" v-model="size">
-    <option :value="6">Easy</option>
-    <option :value="18">Medium</option>
-    <option :value="36">Hard</option>
-  </select>
 </template>
 
 <script>
-
+import generatePole from "@/utils/generatePole";
+//кнопка reset
+// сделать квадратное
+// подкрашевать активные
+// таймер на экране в обратную сторону
 export default {
   name: 'MemoryGame',
   data() {
     return {
-      pole: ['1', '2', '3', '3', '2', '1',],
+      size: 6,
+      pole: [],
       value: '',
       valueTwo: '',
-      open: [false, false, false, false, false, false],
-      size: 6,
+      open: [],
     }
+  },
+  mounted() {
+    this.reset()
   },
   methods: {
     //перезаписать Pole на требуемое колво
     onChange() {
       this.reset()
-      this.pole = this.generatePole()// this.pole = this.generatepole(this.size)//в зависимости от параметра size возвращает массив[1,1,]
-      this.pole = this.shuffle()   // this.pole = this.random(this.pole)
-      // value open сбросить
     },
-    shuffle() {
-      return this.pole.sort(() => Math.random() - 0.5);
-    },
-    generatePole() {
-      //надо чтобы 2 одинаковых числа записывались в подряд
-      for (let i = 0; i < this.size / 2; i++) {
-        this.pole.push(i)
-        this.pole.push(i)
-      }
 
-      return this.pole
-    },
     reset() {
       this.value = ''
       this.valueTwo = ''
-      this.open = [false, false, false, false, false, false]
-      this.pole = []
+      this.pole = generatePole(this.size)
+      this.open = Array.apply(null, {length: this.size}).map(()=> false)
     },
     onClick(i, index) {
+      if (this.value !== '' && this.valueTwo !== '') {
+        this.value = ''
+        this.valueTwo = ''
+        clearTimeout(this.timed)
+      }
       if (this.value === '') {
         //1 click
         this.value = index
@@ -79,10 +82,10 @@ export default {
           this.value = ''
           this.valueTwo = ''
         } else if (this.valueTwo !== '') {
-          setTimeout(() => {
+         this.timed = setTimeout(() => {
             this.value = ''
             this.valueTwo = ''
-          }, 1500)
+          }, 1000)
 
         }
       }
@@ -104,14 +107,8 @@ export default {
       return ''
     },
     countClosedCard() {
-      return this.open.filter((el) => {
-        if (el !== false) {
-          return false
-        }
-        return true
-      }).length
+      return this.open.filter(el => el !== true).length
     }
-
   }
 }
 </script>
@@ -122,7 +119,16 @@ export default {
   opacity: 1;
   transition: 1s;
 }
+.menu {
+  display: flex;
+  flex-direction: column;
 
+}
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .item {
   display: flex;
   justify-content: center;
@@ -133,6 +139,7 @@ export default {
   box-shadow: inset 1px 1px 8px 14px #d2c2ac;
   background: #CCB494;
   margin: 10px;
+  font-size: 60px;
 }
 
 .itemAnimation-enter-active, .itemAnimation-leave-active {
@@ -145,12 +152,26 @@ export default {
 }
 
 .flex {
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   max-width: 700px;
+  margin-left: 72px;
+}
+@media screen and (max-width: 320px) {
+.item {
+  min-width: 61px;
+  min-height: 61px;
+  font-size: 45px;
+}
+}
+@media screen and (max-width: 620px) {
+  .item {
+    min-width: 71px;
+    min-height: 71px;
+    font-size: 40px;
+  }
 }
 
 </style>
