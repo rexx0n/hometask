@@ -68,10 +68,10 @@ export default {
       if (this.size === 6) {
         this.currentTime = 10
       } else if(this.size === 18) {
-        this.currentTime = 30
+        this.currentTime = 40
       }
       else {
-        this.currentTime = 60
+        this.currentTime = 120
       }
     },
     reset() {
@@ -136,6 +136,7 @@ export default {
     },
     winner() {
       if (this.checkWinner === true) {
+        this.stopTimer()
         return 'Победа'
       } else if (this.currentTime === 0) {
         return "Ты не успел(а)"
