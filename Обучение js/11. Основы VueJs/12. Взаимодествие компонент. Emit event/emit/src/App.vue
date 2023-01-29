@@ -1,6 +1,6 @@
 <template>
 <div>
-  <HelloWorld @onChangeCounter='onChangeCounterInComponent'></HelloWorld>
+  <HelloWorld :title="title" @onChangeCounter='onChangeCounterInComponent'></HelloWorld>
 </div>
 </template>
 

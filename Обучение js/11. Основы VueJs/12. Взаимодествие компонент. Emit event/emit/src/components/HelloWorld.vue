@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>{{title}}</h1>
     <button @click="onClick">Send event</button>
   </div>
 </template>
@@ -7,6 +8,16 @@
 <script>
 export default {
   name: 'HelloWorld',
+  props: {
+    title: {
+      tipe: String,
+      required: true,
+    },
+    user: {
+      type:Object,
+      default: () => ({})
+    }
+  },
   data () {
     return {
       counter:0,
