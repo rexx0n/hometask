@@ -2,7 +2,7 @@
 <div>
   <Form @submitForm='onFormSubmit'/>
   <TotalBalance :total="TotalBalance"/>
-  <BudgetList :list="list" @deleteItem='onDeleteItem'></BudgetList>
+  <BudgetList :list="list" ></BudgetList>
 </div>
   
 </template>
@@ -43,9 +43,6 @@ export default {
     }
   },
   methods: {
-    onDeleteItem(id) {
-      this.$delete(this.list, id)
-    },
     onFormSubmit(data) {
       const newObj = {
         ...data,

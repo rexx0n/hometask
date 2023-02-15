@@ -1,8 +1,19 @@
 <template>
   <div class="budget-list-wrap">
+    <el-dialog
+        title="Tips"
+        v-if="dialogVisible"
+        width="30%"
+        :before-close="handleClose">
+      <span>This is a message</span>
+      <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">Cancel</el-button>
+    <el-button type="primary" @click="dialogVisible = false">Confirm</el-button>
+  </span>
+    </el-dialog>
     <ElCard :header="header">
       <template v-if="!isEmpty">
-        <BudgetListItem :list="list"></BudgetListItem>
+        <BudgetListItem @deleteItem="onDeleteItem" :list="list"></BudgetListItem>
       </template>
       <ElAlert v-else type="info" :title="emptyTitle" :closable="false"/>
     </ElCard>
@@ -26,7 +37,8 @@ export default {
   data() {
     return {
       header: "Budget List",
-      emptyTitle: 'Empty List'
+      emptyTitle: 'Empty List',
+      dialogVisible: false
     };
   },
   computed: {
@@ -34,6 +46,19 @@ export default {
       return !Object.keys(this.list).length
     }
   },
+  methods: {
+    confirm() {
+      return window.confirm('Вы уверены, что хотите удалить?')
+    },
+    onDeleteItem(id) {
+      if (this.handleClose()) {
+        this.$delete(this.list, id)
+      }
+    },
+    handleClose() {
+      return   this.$confirm('Are you sure to close this dialog?')
+    }
+  }
 };
 </script>
 

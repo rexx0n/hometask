@@ -1,5 +1,5 @@
 <template>
-  <div class="total-value">
+  <div class="total-value" :class="{'green': total > 0,'black': total === 0, 'red': total < 0 }">
     Balance: {{total}}
   </div>
 </template>
@@ -22,5 +22,14 @@ props: {
     text-transform: uppercase;
     padding: 20px;
     text-align: center;
+}
+.green {
+  color: green;
+}
+.black {
+  color: black;
+}
+.red {
+  color: red;
 }
 </style>

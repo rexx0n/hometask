@@ -15,7 +15,8 @@
     name:'BudgetListItem',
     methods: {
       deleteItem(id) {
-        this.$emit('deleteItem', id)
+          this.$emit('deleteItem', id)
+
       }
     },
     props: {
