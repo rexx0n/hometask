@@ -1,9 +1,11 @@
 <template>
   <div>
-    <div class="list-item" v-for="(item, prop) in list" :key="prop">
+    <div class="list-item">
+      <i :class="classObject" ></i>
       <span class="budget-comment">{{ item.comment }}</span>
       <span class="budget-value">{{ item.value }}</span>
-      <ElButton type="danger" size="mini" @click="deleteItem(item.id)">delete</ElButton>
+      <ElButton type="danger" size="mini" @click="$emit('deleteItem',item.id)">delete</ElButton>
+      <button type="danger" size="mini" @click="onClick">delete2</button>
     </div>
   </div>
 
@@ -13,19 +15,25 @@
 
   export default  {
     name:'BudgetListItem',
-    methods: {
-      deleteItem(id) {
-          this.$emit('deleteItem', id)
-
-      }
-    },
     props: {
-      list: {
+      item: {
         type: Object,
-        default: () => ({}),
       },
     },
-
+    computed: {
+      classObject() {
+        return {
+          'el-icon-top': this.item.type === 'INCOME',
+          'el-icon-bottom': this.item.type === 'OUTCOME'
+        }
+      }
+    },
+    methods: {
+      onClick() {
+        // eslint-disable-next-line
+        this.item.value +=  10
+      }
+    },
   }
 </script>
 

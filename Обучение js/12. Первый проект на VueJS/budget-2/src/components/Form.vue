@@ -29,20 +29,19 @@ export default {
             comment: '',
             value: 0,
             },
-            
+          rules: {
+            type: [
+              { required: true, message: 'Please select type', trigger: 'blur'}
+            ],
+            comment:[
+              {required: true, message: 'Please input comment', trigger:'change'}
+            ],
+            value:[
+              {required: true, message: 'Please input comment', trigger:'change'},
+              {type: 'number', message: 'Value must be a number', trigger:'change'}
+            ]
+          },
         }
-    },
-    rules: {
-        type: [
-            { required: true, message: 'Please select type', trigger: 'blur'}
-        ],
-        comment:[
-            {required: true, message: 'Please input comment', trigger:'change'}
-        ],
-        value:[
-            {required: true, message: 'Please input comment', trigger:'change'},
-            {type: 'number', message: 'Value must be a number', trigger:'change'}
-        ]
     },
     methods: {
         onSubmit() {
@@ -56,6 +55,7 @@ export default {
     }
 }
 </script>
+
 
 <style>
 .form-card {

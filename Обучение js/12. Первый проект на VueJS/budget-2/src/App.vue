@@ -1,8 +1,11 @@
 <template>
 <div>
+  <div class="budget-list-wrap">
   <Form @submitForm='onFormSubmit'/>
   <TotalBalance :total="TotalBalance"/>
+  <FilterPanel></FilterPanel>
   <BudgetList :list="list" ></BudgetList>
+  </div>
 </div>
   
 </template>
@@ -11,12 +14,14 @@
 import BudgetList from '@/components/BudgetList.vue'
 import TotalBalance from '@/components/TotalBalance.vue'
 import Form from '@/components/Form.vue'
+import FilterPanel from "@/components/FilterPanel";
 export default {
   name: 'App',
   components: {
     BudgetList,
     TotalBalance,
     Form,
+    FilterPanel
   },
   data() {
     return {
@@ -62,5 +67,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.budget-list-wrap {
+  max-width: 500px;
+  margin: auto;
 }
 </style>

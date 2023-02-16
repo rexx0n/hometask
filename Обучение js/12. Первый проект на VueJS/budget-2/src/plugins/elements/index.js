@@ -11,6 +11,8 @@ import {
     Select,
     Option,
     Alert,
+    MenuItem,
+    Menu
 } from 'element-ui'
 
 const elements = [Button,
@@ -20,7 +22,9 @@ const elements = [Button,
     Input,
     Select,
     Option,
-    Alert
+    Alert,
+    MenuItem,
+    Menu,
 ]
 
 locale.use(lang)

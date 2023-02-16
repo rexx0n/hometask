@@ -1,23 +1,10 @@
 <template>
-  <div class="budget-list-wrap">
-    <el-dialog
-        title="Tips"
-        v-if="dialogVisible"
-        width="30%"
-        :before-close="handleClose">
-      <span>This is a message</span>
-      <span slot="footer" class="dialog-footer">
-    <el-button @click="dialogVisible = false">Cancel</el-button>
-    <el-button type="primary" @click="dialogVisible = false">Confirm</el-button>
-  </span>
-    </el-dialog>
     <ElCard :header="header">
       <template v-if="!isEmpty">
-        <BudgetListItem @deleteItem="onDeleteItem" :list="list"></BudgetListItem>
+        <BudgetListItem v-for="(item, prop) in listFiltred" :key="prop" @deleteItem="onDeleteItem" :item="item"></BudgetListItem>
       </template>
       <ElAlert v-else type="info" :title="emptyTitle" :closable="false"/>
     </ElCard>
-  </div>
 </template>
 
 <script>
@@ -30,9 +17,13 @@ export default {
   },
   props: {
     list: {
-      type: Object,
+
       default: () => ({}),
     },
+    filter: {
+      type: String,
+      default: 'ALL'
+    }
   },
   data() {
     return {
@@ -44,6 +35,22 @@ export default {
   computed: {
     isEmpty() {
       return !Object.keys(this.list).length
+    },
+    listFiltred() {
+      return Object.keys(this.list)
+          .filter(id => {
+            this.list[id].item === this.filter || true
+            //this.filter /INCOME OUTCOME ALL/
+            //this.list[id] = item
+            //                 INCOME OUTCOME ALL
+            // INCOME           true  false   true
+            // OUTCOME          false true    true
+
+          })
+          .reduce((obj, key) => {
+            obj[key] = this.list[key];
+            return obj;
+          }, {});
     }
   },
   methods: {
@@ -51,23 +58,17 @@ export default {
       return window.confirm('Вы уверены, что хотите удалить?')
     },
     onDeleteItem(id) {
-      if (this.handleClose()) {
+      if (this.confirm()) {
         this.$delete(this.list, id)
       }
     },
-    handleClose() {
-      return   this.$confirm('Are you sure to close this dialog?')
-    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.budget-list-wrap {
-  max-width: 500px;
-  margin: auto;
-}
+
 
 
 </style>
