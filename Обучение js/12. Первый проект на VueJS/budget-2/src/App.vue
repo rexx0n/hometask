@@ -3,7 +3,7 @@
   <div class="budget-list-wrap">
   <Form @submitForm='onFormSubmit'/>
   <TotalBalance :total="TotalBalance"/>
-  <FilterPanel @changeFilter="onChangeFilter"></FilterPanel>
+  <FilterPanel @change-filter="onChangeFilter"></FilterPanel>
   <BudgetList :list="list" :filter="filter"></BudgetList>
   </div>
 </div>
