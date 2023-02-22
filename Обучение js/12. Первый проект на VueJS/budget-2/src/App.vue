@@ -3,8 +3,8 @@
   <div class="budget-list-wrap">
   <Form @submitForm='onFormSubmit'/>
   <TotalBalance :total="TotalBalance"/>
-  <FilterPanel></FilterPanel>
-  <BudgetList :list="list" ></BudgetList>
+  <FilterPanel @changeFilter="onChangeFilter"></FilterPanel>
+  <BudgetList :list="list" :filter="filter"></BudgetList>
   </div>
 </div>
   
@@ -39,7 +39,7 @@ export default {
           id: 2,
         }
       },
-      
+      filter: 'ALL',
     }
   },
   computed: {
@@ -54,6 +54,10 @@ export default {
         id: String(Math.random())
       }
       this.$set(this.list, newObj.id, newObj)
+    },
+    onChangeFilter(value) {
+      console.log(value)
+      this.filter = value
     }
   }
 }

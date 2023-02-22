@@ -22,7 +22,7 @@ export default {
     },
     filter: {
       type: String,
-      default: 'INCOME'
+      default: 'ALL'
     }
   },
   data() {
@@ -40,7 +40,9 @@ export default {
       return Object.keys(this.list)
           .filter(id => {
             console.log(this.filter)
-            return this.list[id].type === this.filter || this.list[id]
+
+
+            return this.filter === this.list[id].type || this.filter === 'ALL'
             //this.filter /INCOME OUTCOME ALL/
             //this.list[id] = item
             //                 INCOME OUTCOME ALL
