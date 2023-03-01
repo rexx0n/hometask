@@ -57,7 +57,7 @@ console.log(onlyStr({name:'asd',age:32, id:31, about:'smart, kind, strong'}));
 function onlyPropObj(arr, prop) {
     let arrObj = []
     arr.forEach(el => {
-       arrObj =  { el[prop] }
+       arrObj =   el[0].el//todo
     })
 }
 let b = [
@@ -65,6 +65,35 @@ let b = [
     {age:'123'}
 ]
 // Напишите функцию, которая принимает объект и проверяет, является ли он пустым (не содержит свойств).
+function isEmptyObj (obj) {
+    let count = 0
+    for(let key in obj) {
+        return false
+    }
+    return true
+}
+console.log(isEmptyObj({name:'asd'}))
 // Напишите функцию, которая принимает два объекта и возвращает true, если они содержат одинаковые наборы свойств и значений, и false в противном случае.
+function isSame(obj, obj2) {
+    for(let key in obj) {
+        if( obj[key] === obj2[key]) {
+            count++
+        }
+    }
+    return false
+}
+console.log(isSame({name:'123a',id:1, age:22}, {name:'12a',id:12,age:222}))
 // Напишите функцию, которая принимает массив объектов и возвращает объект, в котором свойства это значения конкретного свойства объектов, а значения - количество раз, которое это значение встречается в массиве.
+
 // Напишите функцию, которая принимает объект и массив строк и возвращает новый объект, в котором только те свойства, которые есть в массиве строк.
+function objArr(obj, arr) {
+let newObj = {}
+arr.forEach(el => {
+    if(obj[el] !== undefined) {
+        newObj[el] = obj[el]
+    }
+    
+})
+console.log(newObj)
+}
+objArr({age:22,id:1,name:'Aleksey',city:'Simferopol'}, ['name','age','id','sda','aasd'])
