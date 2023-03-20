@@ -1,20 +1,21 @@
 // Напишите функцию, которая принимает объект и возвращает количество его свойств.
-function objectLength(obj) {
+
+export function objectLength(obj) {
     let a = 0
     for(let key in obj) {
         a++
     }
     return a
 }
-console.log(objectLength({name:'asd',age:13,id:133,ids:133}) === 4);
+// console.log(objectLength({name:'asd',age:13,id:133,ids:133}) === 4);
 // Напишите функцию, которая принимает два объекта и возвращает новый объект, содержащий свойства обоих объектов.
     function sumObject(obj, obj2) {
-        for(key in obj) {
+        for(let key in obj) {
             obj2[key] = obj[key]
         }
         return obj2
     }
-    console.log(sumObject({name:'asd'}, {age:123, id:1}));
+    // console.log(sumObject({name:'asd'}, {age:123, id:1}));
 // Напишите функцию, которая принимает массив объектов и возвращает массив значений конкретного свойства этих объектов.
 //[{a:1},{a:2},{a:'c'},{b:1}] = [1,2,'c']
 function arrObject(arr,key) {
@@ -40,7 +41,7 @@ function reverseObject(obj) {
     b.forEach(el => {
         newObj[el] = obj[el]
     });
-    console.log(newObj)
+    // console.log(newObj)
 }
 reverseObject({name:'131',age:13, id:31})
 // Напишите функцию, которая принимает объект и возвращает новый объект, в котором только те свойства, которые содержат строковые значения.
@@ -53,7 +54,7 @@ function onlyStr(obj) {
     }
     return newObj
 }
-console.log(onlyStr({name:'asd',age:32, id:31, about:'smart, kind, strong'}));
+// console.log(onlyStr({name:'asd',age:32, id:31, about:'smart, kind, strong'}));
 // Напишите функцию, которая принимает массив объектов и возвращает новый массив объектов, в которых сохранены только свойства, указанные во втором аргументе функции.
 function onlyPropObj(arr, prop) {
     let arrObj = []
@@ -73,7 +74,7 @@ function isEmptyObj (obj) {
     }
     return true
 }
-console.log(isEmptyObj({name:'asd'}))
+// console.log(isEmptyObj({name:'asd'}))
 // Напишите функцию, которая принимает два объекта и возвращает true, если они содержат одинаковые наборы свойств и значений, и false в противном случае.
 function isSame(obj, obj2) {
     for(let key in obj) {
@@ -83,7 +84,7 @@ function isSame(obj, obj2) {
     }
     return false
 }
-console.log(isSame({name:'123a',id:1, age:22}, {name:'12a',id:12,age:222}))
+// console.log(isSame({name:'123a',id:1, age:22}, {name:'12a',id:12,age:222}))
 // Напишите функцию, которая принимает массив объектов и возвращает объект, в котором свойства это значения конкретного свойства объектов, а значения - количество раз, которое это значение встречается в массиве.
 
 // Напишите функцию, которая принимает объект и массив строк и возвращает новый объект, в котором только те свойства, которые есть в массиве строк.
@@ -95,6 +96,7 @@ arr.forEach(el => {
     }
     
 })
-console.log(newObj)
+// console.log(newObj)
 }
 objArr({age:22,id:1,name:'Aleksey',city:'Simferopol'}, ['name','age','id','sda','aasd'])
+// export {objectLength}

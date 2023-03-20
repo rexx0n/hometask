@@ -12,7 +12,7 @@ const moviesStore = {
                 params: {
                     apikey:process.env.VUE_APP_API_KEY,
                     plot:'full',
-                    i:'tt0111161'
+                    i:'11'
                 }
             })
             console.log(responce)

@@ -58,10 +58,12 @@ function isPalidrome(str) {
   console.log(isPalidrome('Казак'))  
 // Напишите функцию, которая принимает массив строк и возвращает новый массив, содержащий только уникальные значения.
 function unical(arr) {
-    arr.reduce((acc,str)=>{
-    
-    
-          
-    },[])
+    let newArr =[]
+    arr.forEach(element => {
+        if( !newArr.includes(element)) {
+            newArr.push(element)
+        }
+    });
+    return newArr
 }
 console.log(unical(['еж','еж','asd','asr']))
