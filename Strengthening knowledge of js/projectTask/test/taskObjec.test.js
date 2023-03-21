@@ -1,6 +1,6 @@
 import { expect, test, describe } from 'vitest';
 import { objectLength} from '../src/taskObject';
-import { sum, sumArr, whatsLength, arrOverFive, reverse, sort } from '../src/taskArr';
+import { sum, sumArr, whatsLength, arrOverFive, reverse, sort,annagram, isPalidrome,unical } from '../src/taskArr';
 
 describe('тестирование функции objectLength', () => {
     test('non empty object', () => {
@@ -53,7 +53,7 @@ describe('тестирование функции whatsLength', ()=> {
 })
 // describe('Тестирование функции arrOverFive', ()=> {
 //     test('work func', ()=> {
-//         expect(arrOverFive(['asd','ert','Человек','фывфыафыа'])).toBe(['Человек','фывфывфыф'])
+//         expect(arrOverFive(['asd','ert','Человек','фывфыафыа'])).toEqual(['Человек','фывфывфыф'])
 //     })
 // })
 describe('тестирование функции reverse', ()=> {
@@ -77,6 +77,51 @@ describe('тестирование функции sort', ()=> {
     test('is nothing', ()=> {
         expect(sort()).toStrictEqual([])
     })
+    // test('is string', () => {
+    //     expect(sort(['dd','dddd','d','dddddddd'])).toStrictEqual(['d','dd','dddd','dddddddd'])
+    // })
+})
+describe('тестирование функции annagram',()=> {
+    test('work function',()=> {
+        expect(annagram('привет', 'ирпвет')).toBe(true)
+    })
+    test('is empty', ()=> {
+        expect(annagram('','')).toBe(false)
+    })
+    test('is nothing', ()=> {
+        expect(annagram()).toBe(false)
+    })
+    test('is number', ()=> {
+        expect(annagram(312,123)).toBe(false)
+    })
+})
+describe('тестирование функции isPalidrome',()=> {
+    test('work func',()=> {
+        expect(isPalidrome('Казак')).toBe(true)
+    })
+    test('is empty', ()=> {
+        expect(isPalidrome('')).toBe(false)
+    })
+    test('is nothing', ()=> {
+        expect(isPalidrome()).toBe(false)
+    })
+    test('is number', ()=> {
+        expect(isPalidrome(312)).toBe(false)
+    })
+})
+describe('тестирование функции unical',()=> {
+    test('work func',()=> {
+        expect(unical(['1','2','2','3','4','3'])).toStrictEqual(['1','2','3','4'])
+    })
+    // test('is empty', ()=> {
+    //     expect(unical('')).toBe()
+    // })
+    // test('is nothing', ()=> {
+     //     expect(unical()).toBe()
+     // })
+    // test('is number', ()=> {
+     //     expect(unical()).toBe()
+     // })
 })
 
 

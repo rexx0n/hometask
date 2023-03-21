@@ -32,8 +32,8 @@ export function sort(arr = []) {
 }
 // console.log(sortt([24,5,1,42,523,2,4,3]) == [1,2,3,4,5,24,42,523])//почему обьект 
 // Напишите функцию, которая принимает две строки и возвращает true, если они являются анаграммами, и false в противном случае.
-function annagram(strOne,strTwo) {
-    if(strOne.length !== strTwo.length) {
+export function annagram(strOne = "",strTwo = '') {
+    if(strOne.length !== strTwo.length || strOne.length === 0 || strTwo.length === 0 || typeof strOne === 'number' || typeof strTwo === 'number') {
         return false
     }
     let str1 = strOne.split('')
@@ -49,16 +49,22 @@ function annagram(strOne,strTwo) {
 // Напишите функцию, которая принимает массив чисел и возвращает среднее значение.
 
 // Напишите функцию, которая принимает строку и проверяет, является ли она палиндромом (то есть читается одинаково как справа налево, так и слева направо).
-function isPalidrome(str) {
-    let a =  str.toLowerCase().split('').reverse().join('')
-    if(a === str.toLowerCase()) {
-        return true
+export function isPalidrome(str = '') {
+    if(typeof str === 'number') {
+        return false
     }
-    return false
+    let a =  str.toLowerCase().split('').reverse().join('')
+     if(a !== str.toLowerCase(), str === '') {
+        return false
+    }
+    return true
 }
 //   console.log(isPalidrome('Казак'))  
 // Напишите функцию, которая принимает массив строк и возвращает новый массив, содержащий только уникальные значения.
-function unical(arr) {
+export function unical(arr = []) {
+    if (arr === []) {
+        return []
+    }
     let newArr =[]
     arr.forEach(element => {
         if( !newArr.includes(element)) {
