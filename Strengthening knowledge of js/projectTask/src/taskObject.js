@@ -9,7 +9,7 @@ export function objectLength(obj) {
 }
 // console.log(objectLength({name:'asd',age:13,id:133,ids:133}) === 4);
 // Напишите функцию, которая принимает два объекта и возвращает новый объект, содержащий свойства обоих объектов.
-    function sumObject(obj, obj2) {
+    export function sumObject(obj = {}, obj2 = {}) {
         for(let key in obj) {
             obj2[key] = obj[key]
         }
@@ -23,7 +23,7 @@ function arrObject(arr,key) {
 }
 
 // Напишите функцию, которая принимает объект и возвращает новый объект, в котором значения свойств перевернуты наоборот.
-function reverseObject(obj) {
+export function reverseObject(obj) {
     let a = ''
     for (let key in obj) {
         a += ' ' + key 
@@ -41,11 +41,12 @@ function reverseObject(obj) {
     b.forEach(el => {
         newObj[el] = obj[el]
     });
-    // console.log(newObj)
+    return b
+    // console.log(newObj)//todo
 }
-reverseObject({name:'131',age:13, id:31})
+// cosnole.log(reverseObject({name:'131',age:13, id:31}))
 // Напишите функцию, которая принимает объект и возвращает новый объект, в котором только те свойства, которые содержат строковые значения.
-function onlyStr(obj) {
+export function onlyStr(obj) {
     let newObj = {}
     for (let key in obj) {
         if(typeof obj[key] === 'string') {
@@ -67,7 +68,7 @@ let b = [
     {age:'123'}
 ]
 // Напишите функцию, которая принимает объект и проверяет, является ли он пустым (не содержит свойств).
-function isEmptyObj (obj) {
+export function isEmptyObj (obj) {
     let count = 0
     for(let key in obj) {
         return false
@@ -76,7 +77,7 @@ function isEmptyObj (obj) {
 }
 // console.log(isEmptyObj({name:'asd'}))
 // Напишите функцию, которая принимает два объекта и возвращает true, если они содержат одинаковые наборы свойств и значений, и false в противном случае.
-function isSame(obj, obj2) {
+export function isSame(obj, obj2) {
     for(let key in obj) {
         if( obj[key] === obj2[key]) {
             count++
@@ -96,7 +97,7 @@ arr.forEach(el => {
     }
     
 })
-// console.log(newObj)
+// console.log(newObj)//todo
 }
 objArr({age:22,id:1,name:'Aleksey',city:'Simferopol'}, ['name','age','id','sda','aasd'])
 // export {objectLength}

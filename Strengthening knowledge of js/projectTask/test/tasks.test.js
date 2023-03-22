@@ -1,5 +1,5 @@
 import { expect, test, describe } from 'vitest';
-import { objectLength} from '../src/taskObject';
+import { objectLength, sumObject, reverseObject, onlyStr, isEmptyObj, isSame} from '../src/taskObject';
 import { sum, sumArr, whatsLength, arrOverFive, reverse, sort,annagram, isPalidrome,unical } from '../src/taskArr';
 
 describe('тестирование функции objectLength', () => {
@@ -123,6 +123,57 @@ describe('тестирование функции unical',()=> {
      //     expect(unical()).toBe()
      // })
 })
+describe('тестирование функции sumObject', ()=> {
+    test('work func',()=> {
+        expect(sumObject({name:'Alex'},{age:17})).toStrictEqual({name:'Alex', age:17})
+    })
+    test('is empty', ()=> {
+        expect(sumObject({})).toStrictEqual({})
+    })
+    test('is nothing', ()=> {
+        expect(sumObject()).toStrictEqual({})
+    })
+})
+//Переделать функцию
+// describe('тестирование функции reverseObject', ()=> {
+//     test('work func',()=> {
+//         expect(reverseObject({name:'Alex',age:17})).toStrictEqual({ age:17, name:'Alex'})
+//     })
+//     test('is empty', ()=> {
+//         expect(reverseObject({})).toStrictEqual({})
+//     })
+//     test('is nothing', ()=> {
+//         expect(reverseObject()).toStrictEqual({})
+//     })
+// })
 
-
-
+describe('тестирование функции onlyStr', ()=> {
+    test('work func',()=> {
+        expect(onlyStr({name:'asd',age:32, id:31, about:'smart, kind, strong'})).toStrictEqual({name:'asd', about:'smart, kind, strong'})
+    })
+    test('is empty', ()=> {
+        expect(onlyStr({})).toStrictEqual({})
+    })
+    test('is nothing', ()=> {
+        expect(onlyStr()).toStrictEqual({})
+    })
+})
+describe('тестирование функции onlyStr', ()=> {
+    test('work func',()=> {
+        expect(isEmptyObj({name:'asd',age:32, id:31, about:'smart, kind, strong'})).toBe(false)
+    })
+    test('is nothing', ()=> {
+        expect(isEmptyObj()).toBe(true)
+    })
+})
+describe('тестирование функции isSame', ()=> {
+    test('work func',()=> {
+        expect(isSame({name:'123a',id:1, age:22}, {name:'12a',id:12,age:222})).toBe(false)
+    })
+    test('is empty', ()=> {
+        expect(isSame({})).toBe(false)
+    })
+    test('is nothing', ()=> {
+        expect(isSame()).toBe(false)
+    })
+})
