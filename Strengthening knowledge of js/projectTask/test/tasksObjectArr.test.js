@@ -169,7 +169,7 @@ describe('тестирование функции onlyStr', ()=> {
 describe('тестирование функции isSame', ()=> {
     test('work func',()=> {
         expect(isSame({name:'123a',id:1, age:22}, {name:'12a',id:12,age:222})).toBe(false)
-    })
+    })   
     test('is empty', ()=> {
         expect(isSame({})).toBe(false)
     })
