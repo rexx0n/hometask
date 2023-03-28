@@ -5,7 +5,19 @@ export function toUpper(str  = '') {
 // console.log(toUpper('agssa')=== 'AGSSA')
 // Напишите функцию, которая принимает массив чисел и возвращает наибольшее значение.
 export function largest(arr) {
-    return arr.reduce((acc, item) => acc > item,0)
+    if(arr === undefined ) {
+       throw Error('Invalid argument')
+    }
+        if(arr.length === 0) {
+        return null
+    }
+    let num = arr[0]
+    for(let i= 0; i < arr.length; i++) {
+        if (num < arr[i]) {
+            num = arr[i]
+        }
+    }
+    return num
 }
 // console.log(largest([1,2,3,4,5]))//todo
 // Напишите функцию, которая принимает два массива и возвращает новый массив, содержащий элементы обоих массивов.
@@ -59,6 +71,7 @@ export function toLower(str = '') {
 }
 // console.log(toLower('FAFAFASASDFG'))
 // Напишите функцию, которая принимает массив чисел и возвращает новый массив, содержащий только уникальные числа.
+
 
 // Напишите функцию, которая принимает два массива и возвращает новый массив, содержащий только элементы, которые встречаются в обоих массивах.
 export function arrone(arr = [],arr2 = []) {

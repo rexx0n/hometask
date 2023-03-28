@@ -13,18 +13,21 @@ describe('тестирование функции toUpper', () => {
         
     })
 })
-// describe('тестирование функции largest', () => {//todo function
-//     test('non empty object', () => {
-//         expect(largest('кот')).toBe("КОТ")
-//     })
-//     test(' empty str', () => {
-//         expect(largest("")).toBe("")
-//     })
-//     test('empty object', () => {
-//         expect(largest()).toBe()
+describe('тестирование функции largest', () => {
+    test('work function', () => {
+        expect(largest([1,2,3,4,5])).toBe(5)
+    })
+    test('work function', () => {
+        expect(largest([-1,-2,-3,-4,-5])).toBe(-1)
+    })
+    test(' empty arr', () => {
+        expect(largest([])).toBe(null)
+    })
+    test('empty', () => {
+        expect(()=> largest()).toThrowError('Invalid argument')
         
-//     })
-// })
+    })
+})
 describe('тестирование функции oddNumbered', () => {
     test('non empty ', () => {
         expect(oddNumbered([1,2,3,4,5,6])).toStrictEqual([1,3,5])
