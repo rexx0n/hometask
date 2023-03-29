@@ -5,14 +5,13 @@
   <div class="app">
     <form @submit.prevent>
       <h4>Создание задачи</h4>
-      <input :value="title"
-             @input="title =$event.target.value "
+      <input v-model="task.title"
              class="input"
              type="text"
              placeholder="Название задачи">
-      <input v-bind:value="body"
+      <input
+          v-model="task.body"
              class="input"
-             @input="body =$event.target.value "
              type="text"
              placeholder="Описание">
       <button class="btn" @click="createTask">Создать</button>
@@ -21,18 +20,25 @@
       <div>
         <div>
           <strong>Название:</strong>
-          <div v-if="true">
+          <div v-if="boolean">
             <input type="text" class="input--refactor" @input="task.title = $event.target.value" :value="task.title">
           </div>
           <div v-else>
             {{ task.title }}
           </div>
         </div>
-        <div><strong>Описание:</strong>{{ task.body }}</div>
+        <div><strong>Описание:</strong>
+          <div v-if="boolean">
+            <input type="text" class="input--refactor" @input="task.body = $event.target.value" :value="task.body">
+          </div>
+          <div v-else>
+            {{ task.body }}
+          </div>
+          </div>
       </div>
       <div>
         <button @click="deleteTask(task)" class="btn">Удалить задачу</button>
-        <button class="btn" @click="refactor">Редактировать</button>
+        <button class="btn" @click="refactor(task)">Редактировать</button>
       </div>
     </div>
   </div>
@@ -47,12 +53,22 @@ export default {
         {id: 2, title: "Some text 2", body: 'Описание задачи 2'},
         {id: 3, title: "Some text 3", body: 'Описание задачи 3'},
       ],
-      title: '',
-      body: '',
+      task: {
+        title: '',
+        body: '',
+      },
+
       boolean: false
     }
   },
   methods: {
+    refactor(task) {
+      this.boolean = true
+      let newTask
+      newTask = this.tasks.filter(p => p.id === task.id)
+      newTask.title = task.title
+      console.log(newTask)
+    },
     createTask() {
       const newTask = {
         id: Date.now(),
