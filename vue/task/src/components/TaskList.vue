@@ -16,11 +16,15 @@
              placeholder="Описание">
       <button class="btn" @click="createTask">Создать</button>
     </form>
+    <div>
+      <button v-if="isEdit" class="btn" @click="refactor(task)">Редактировать</button>
+      <button v-else class="btn" @click="save(task)">Сохранить</button>
+    </div>
     <div class="task" :key="task.id" v-for="task in tasks">
       <div>
         <div>
           <strong>Название:</strong>
-          <div v-if="boolean">
+          <div v-if="!isEdit">
             <input type="text" class="input--refactor" @input="task.title = $event.target.value" :value="task.title">
           </div>
           <div v-else>
@@ -28,7 +32,7 @@
           </div>
         </div>
         <div><strong>Описание:</strong>
-          <div v-if="boolean">
+          <div v-if="!isEdit">
             <input type="text" class="input--refactor" @input="task.body = $event.target.value" :value="task.body">
           </div>
           <div v-else>
@@ -38,7 +42,6 @@
       </div>
       <div>
         <button @click="deleteTask(task)" class="btn">Удалить задачу</button>
-        <button class="btn" @click="refactor(task)">Редактировать</button>
       </div>
     </div>
   </div>
@@ -57,27 +60,25 @@ export default {
         title: '',
         body: '',
       },
-
-      boolean: false
+      isEdit:true,
     }
   },
   methods: {
-    refactor(task) {
-      this.boolean = true
-      let newTask
-      newTask = this.tasks.filter(p => p.id === task.id)
-      newTask.title = task.title
-      console.log(newTask)
+    save() {
+      this.isEdit = true
+    },
+    refactor() {
+      this.isEdit = false
     },
     createTask() {
       const newTask = {
         id: Date.now(),
-        title: this.title,
-        body: this.body,
+        title: this.task.title,
+        body: this.task.body,
       }
       this.tasks.push(newTask)
-      this.title = ''
-      this.body = ''
+      this.task.title = ''
+      this.task.body = ''
     },
     deleteTask(task) {
       this.tasks = this.tasks.filter(p => p.id !== task.id)
@@ -89,7 +90,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .input--refactor {
-  border: none;
+  border: 1px solid gray;
 }
 
 .task {
