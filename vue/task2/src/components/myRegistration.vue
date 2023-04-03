@@ -28,19 +28,23 @@ export default {
     }
   },
   methods: {
-    reg: function () {
+    reg () {
       if (this.emailValue === '' || this.passwordValue === '') {
         this.message = 'Заполните поля!'
         this.clear()
+        return
       }
       if (this.passwordValue.length < 8) {
         this.message = 'Пароль должен быть больше 8 символов'
         this.clear()
+        return;
       }
       if (!/[A-Z]/.test(this.passwordValue)) {
         this.message = 'В пароле должен быть один символ в верхнем регистре'
         this.clear()
+        return;
       }
+        alert('Вы успешно зарегестрировались')
     },
     clear() {
       setTimeout(()=> {
