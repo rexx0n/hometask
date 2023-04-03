@@ -3,7 +3,7 @@
   используя компоненты Vue.js, и добавьте валидацию полей, например, проверку на
   пустые значения, соответствие формата e-mail и пароля. -->
   <div>
-    <form @submit.prevent action="">
+    <form action="registr" @submit.prevent >
       <h2>
         Регистрация
       </h2>
@@ -28,13 +28,31 @@ export default {
     }
   },
   methods: {
-    reg() {
+    reg: function () {
       if (this.emailValue === '' || this.passwordValue === '') {
         this.message = 'Заполните поля!'
-        setTimeout(()=> {
-          this.message = ''
-        }, 3500)
+        this.clearMessage()
+        this.clearValues()
       }
+      if (this.passwordValue.length < 8) {
+        this.message = 'Пароль должен быть больше 8 символов'
+        this.clearMessage()
+        this.clearValues()
+      }
+      if (!/[A-Z]/.test(this.passwordValue)) {
+        this.message = 'В пароле должен быть один символ в верхнем регистре'
+        this.clearMessage()
+        this.clearValues()
+      }
+    },
+    clearMessage() {
+      setTimeout(()=> {
+        this.message = ''
+      }, 3500)
+    },
+    clearValues() {
+      this.passwordValue = ''
+      this.emailValue = ''
     }
   }
 };
