@@ -31,29 +31,24 @@ export default {
     reg: function () {
       if (this.emailValue === '' || this.passwordValue === '') {
         this.message = 'Заполните поля!'
-        this.clearMessage()
-        this.clearValues()
+        this.clear()
       }
       if (this.passwordValue.length < 8) {
         this.message = 'Пароль должен быть больше 8 символов'
-        this.clearMessage()
-        this.clearValues()
+        this.clear()
       }
       if (!/[A-Z]/.test(this.passwordValue)) {
         this.message = 'В пароле должен быть один символ в верхнем регистре'
-        this.clearMessage()
-        this.clearValues()
+        this.clear()
       }
     },
-    clearMessage() {
+    clear() {
       setTimeout(()=> {
         this.message = ''
       }, 3500)
-    },
-    clearValues() {
       this.passwordValue = ''
       this.emailValue = ''
-    }
+    },
   }
 };
 </script>
