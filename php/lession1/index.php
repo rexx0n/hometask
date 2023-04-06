@@ -22,6 +22,16 @@ echo MY_AGE;
     $a = 0.5;
     $b = '0.5';
     echo  $a + floatval($b);
+    $x = 10;
+    $y = 20;
+    $l = $x + $y;
+    echo "<br>".$l;
+    $str = 'hello';
+    echo "asd $str".$str;
+    echo "<input type='text'>";
+    $length = strlen($str);// Длина строки
+    echo $length
+    trim( )
 
 ?>
 </body>
