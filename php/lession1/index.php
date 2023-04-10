@@ -30,7 +30,7 @@ echo MY_AGE;
     echo "asd $str".$str;
     echo "<input type='text'>";
     $length = strlen($str);// Длина строки
-    echo $length
+    echo $length;
     trim( )
 
 ?>

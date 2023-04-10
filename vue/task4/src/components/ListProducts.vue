@@ -7,7 +7,7 @@
       <div>
         <button @click="priceSort">По цене</button>
         <button>По категории</button>
-        <select @change="sortCategor($event.target)">
+        <select @change="sortCategor($event.target), producValue()">
           <option value="Кровать">Кровать</option>
           <option value="Стул">Стул</option>
           <option value="Стол">Стол</option>
@@ -25,7 +25,6 @@ export default {
   name: 'ListProducts',
     data() {
       return {
-        productsTwo: [],
        products:  [
         { id: 1, name: 'Product 1', price: 99.99,categories:'Стул' },
         { id: 2, name: 'Product 2', price: 19.99,categories:'Кровать' },
@@ -36,15 +35,19 @@ export default {
       ],
      }
     },
+  computed: {
+
+  },
   methods: {
     priceSort() {
       this.products.sort((a,b) =>  a.price - b.price)
     },
     sortCategor(target) {
-
-      this.products = this.products.filter(product => product.categories === target.value)
+      this.productsTwo = this.products
+      this.productsTwo = this.products.filter(product => product.categories === target.value)
 
     },
+
   }
 }
 </script>
