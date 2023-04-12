@@ -11,9 +11,13 @@ $matrix = [
 echo  $matrix[0][1];
 for($i = 0; $i < 10; $i++)
     echo $i;
-$a =0;
-while($a <=10) echo $a;
-$s = 0;
-    do {
-        echo $s;
-    }while($s <10);
+//$a =0;
+//while($a <=10) echo $a;
+//$s = 0;
+//    do {
+//        echo $s;
+//    }while($s <10);
+function info($sd) {
+    echo $sd;
+}
+info(34);
