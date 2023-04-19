@@ -17,7 +17,6 @@
           <img src="https://kartinkin.net/uploads/posts/2022-02/1644903894_1-kartinkin-net-p-kartinki-na-fon-1.jpg" alt="">
         </div>
       </div>
-
           <button @click="MoveRight">
             →
           </button>
