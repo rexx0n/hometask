@@ -1,4 +1,5 @@
 <?php
+session_start();
 echo date('l F H:i:s', strtotime('-1 Week -2 Day'));
 $lis = [5,4,3];
 unset($lis[1]);//Удаляет элемент с массива  вместе с индексом
