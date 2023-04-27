@@ -22,3 +22,4 @@
         $_SESSION['$error_message'] = "";
         $_SESSION['$error_subject'] = "";
     }
+header('Location: contact.php');
