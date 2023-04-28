@@ -2,6 +2,7 @@
   <div>
       <h1 @click="plus">{{state.count}}</h1>
       <h1 @click="minus">{{count2}}</h1>
+      <h1>{{log}}</h1>
       <h1>{{счетчик}}</h1>
   </div>
 </template>
