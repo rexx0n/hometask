@@ -5,13 +5,13 @@
           <input v-model="Myemail" type="email" placeholder="email">
           <input v-model="Mypassword" type="password" placeholder="password">
       </form>
+      <h1 @click="onCLick">{{count.count}}</h1>
       <button @click="isShow">Вывести даннные</button>
       <div v-if="bool">
           <h1>Name: {{Myname}}</h1>
           <h1>Email: {{Myemail}}</h1>
           <h1>Password: {{Mypassword}}</h1>
       </div>
-
         <div v-for="user in users" :key="user">
           <h1>{{user.name}}</h1>
       </div>
@@ -19,20 +19,24 @@
 </template>
 
 <script setup>
-import {ref, onMounted, watch} from "vue";
+import {ref, onMounted, watch, reactive} from "vue";
 let Myname = ref('')
 let Myemail = ref('')
 let Mypassword = ref('')
 let bool = ref(false)
+let count = reactive({count:1})
 function isShow() {
     bool = true
 }
-watch(bool, (newBool) => {
-    console.log(newBool)
+watch(() => count.count, (newCount, oldCount) => {
+    console.log(newCount, oldCount)
 })
 onMounted(()=> {
     console.log('теперь ')
 })
+function onCLick() {
+    count.count++
+}
 const users = ref([{
     name:'Aleksei',
     age:17,
