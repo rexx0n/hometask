@@ -1,6 +1,7 @@
 <template>
   <HelloWorld/>
-  <NewComponent></NewComponent>
+  <NewComponent foo="Hell"></NewComponent>
+  <span ></span>
 </template>
 
 <script>
@@ -11,7 +12,8 @@ export default {
   components: {
       NewComponent,
     HelloWorld
-  }
+  },
+
 }
 </script>
 

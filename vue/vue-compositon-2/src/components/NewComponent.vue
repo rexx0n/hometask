@@ -1,13 +1,15 @@
 <template>
   <div>
-      <h1>New Component</h1>
+      <h1>Hello {{props.foo}}</h1>
   </div>
 </template>
 
-<script>
-export default {
-    name: "NewComponent"
-}
+<script setup>
+// eslint-disable-next-line
+const props = defineProps([
+    'foo'
+])
+console.log(props.foo)
 </script>
 
 <style scoped>
