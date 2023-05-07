@@ -14,8 +14,6 @@
               <div>Info: {{task.info}}</div>
               <button @click="DeleteTask(task)">Delete</button>
           </div>
-
-
       </div>
   </div>
 </template>
