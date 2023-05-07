@@ -1,15 +1,14 @@
 <template>
-    <HelloWorld @some-event="someEvent">{{}}</HelloWorld>
-    <h1 @click="someEvent">click</h1>
+  <TaskList/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TaskList from './components/TaskList.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TaskList
   }
 }
 </script>

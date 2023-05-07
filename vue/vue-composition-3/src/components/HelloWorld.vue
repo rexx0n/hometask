@@ -7,6 +7,10 @@
 <script setup>
 //eslint-disable-next-line
 defineEmits(['inFocus', 'submit'])
+  function someEvent () {
+      console.log('Complete')
+  }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
