@@ -1,0 +1,19 @@
+.container {
+    max-width: 1200px;
+}
+img {
+    max-width: 500px;
+    width: 100%;
+    max-height: 250px;
+}
+
+.slider {
+    border: 2px solid  black;
+    max-width: 40%;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.slider-line {
+    display: flex;
+    transition: ease 1s;
+}
