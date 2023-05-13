@@ -1,6 +1,5 @@
 <template>
-    <HelloWorld @some-event="someEvent">{{}}</HelloWorld>
-    <h1 @click="someEvent">click</h1>
+    <HelloWorld @increase-by="increaseCount">sadasss</HelloWorld>
 </template>
 
 <script>
