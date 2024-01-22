@@ -3,14 +3,13 @@
         <input v-model="contentNewTask" type="text" placeholder="task">
     </form>
     <AddButton @click="addTask"></AddButton>
-    <ul>
+        <TransitionGroup name="list" tag="ul">
         <li v-for="task in tasks" :class="{completes: task.complete, noComplete: !task.complete}">
             {{task.content}}
             <button @click="task.complete = true">Complete</button>
             <button @click="deleteTask(task.id)">delete</button>
         </li>
-
-    </ul>
+        </TransitionGroup>
 </template>
 
 <script setup>
@@ -36,6 +35,23 @@
 </script>
 
 <style scoped>
+.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+    position: absolute;
+}
 .completes {
     color: lightgreen;
 }
@@ -47,6 +63,7 @@ ul {
     list-style-type: none;
 }
 li {
+    transition: 500ms;
     display: flex;
     justify-content: space-between;
     padding: 20px;
