@@ -9,6 +9,14 @@ const options = {
 }
 delete options.name
 console.log(options)
-for (let key in options) {
-
+const soldier = {
+    health:400,
+    armor: 300,
 }
+const jonh = {
+    health: 100,
+}
+Object.setPrototypeOf(jonh, soldier)// делает прототип к обьекту jonh
+const jonh2 = Object.create(soldier)// к пустому обьекту сразу добавляет прототип
+console.log(jonh.armor)
+console.log(jonh2.armor)
