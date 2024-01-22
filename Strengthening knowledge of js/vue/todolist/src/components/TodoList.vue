@@ -7,7 +7,7 @@
         <li v-for="task in tasks" :class="{completes: task.complete, noComplete: !task.complete}">
             {{task.content}}
             <button @click="task.complete = true">Complete</button>
-            <button @click="deleteTask(task.id)">delete</button>
+            <DeleteBtn :id='task.id' @click="deleteTask(task.id)">delete</DeleteBtn>
         </li>
         </TransitionGroup>
 </template>
@@ -15,6 +15,7 @@
 <script setup>
   import {ref} from "vue";
   import AddButton from "./AddButton.vue";
+  import DeleteBtn from "./DeleteBtn.vue";
 
   let contentNewTask = ref()
   let tasks = ref([
