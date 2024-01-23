@@ -63,7 +63,8 @@ P.S. Функции вызывать не обязательно*/
 
 'use strict';
 let numberOfFilms
-
+let a = prompt('asdasda')
+console.log(a)
 let personalMovieDB = {
     count: '',
     movies: {},
@@ -75,7 +76,6 @@ let personalMovieDB = {
 
         while (this.count === '' || this.count  == null || isNaN(this.count )) {
             this.count = prompt('Сколько фильмоввы уже посмотрели')
-
         }
     },
     rememberMyFilms: function () {
@@ -118,7 +118,15 @@ let personalMovieDB = {
     writeYourGenres: function () {
         for(let i=1;i <= 3;i++) {
             this.genres[i -1] = prompt(`Ваш любимый жанр под номером ${i}`)
+            console.log(this.genres[i -1])
+            while (this.genres[i -1] === '' || this.genres[i -1 ] === null) {
+                console.log('asdas')
+                this.genres[i -1] = prompt(`Ваш любимый жанр под номером ${i}`)
+            }
         }
+        this.genres.forEach((e)=> {
+            console.log(`Любимый жанр ${this.genres.indexOf(e) +1} это ${e}`)
+        })
     }
 
 }
@@ -128,13 +136,13 @@ let personalMovieDB = {
 personalMovieDB.start()
 
 
-personalMovieDB.rememberMyFilms()
-
-personalMovieDB.toggleVisibleMyDB()
-personalMovieDB.showMyDB()
-personalMovieDB.toggleVisibleMyDB()
-
-personalMovieDB.detectPersonalLevel()
+// personalMovieDB.rememberMyFilms()
+//
+// personalMovieDB.toggleVisibleMyDB()
+// personalMovieDB.showMyDB()
+// personalMovieDB.toggleVisibleMyDB()
+//
+// personalMovieDB.detectPersonalLevel()
 
 
 personalMovieDB.writeYourGenres()
