@@ -47,67 +47,95 @@ genres
 
 P.S. Функции вызывать не обязательно*/
 
+/* Задание на урок:
+
+1) У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
+перед вами стоит задача переписать его так, чтобы все функции стали методами объекта personalMovieDB
+Такое случается в реальных продуктах при смене технологий или подхода к архитектуре программы
+
+2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
+переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
+
+3) В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку.
+Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены -
+при помощи метода forEach вывести в консоль сообщения в таком виде:
+"Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
+
 'use strict';
 let numberOfFilms
 
-console.log(numberOfFilms)
 let personalMovieDB = {
-    count: numberOfFilms,
+    count: '',
     movies: {},
     actors: {},
     genres: [],
-    privat: false
-}
-let film = '', appraisal = ''
+    privat: false,
+    start: function () {
+        this.count = prompt('Сколько фильмоввы уже посмотрели')
 
-function start() {
-    numberOfFilms = prompt('Сколько фильмоввы уже посмотрели')
-    while (numberOfFilms === '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = prompt('Сколько фильмоввы уже посмотрели')
-    }
-}
-start()
-
-function rememberMyFilms () {
-    for (let i = 0; i < 2;) {
-        film = prompt('Один из последних просмотренных фильмов?').trim()
-        appraisal = prompt('На сколько его оцените?')
-        if (film !== '' && film !== null) {
-            if (film.length < 50) {
-                personalMovieDB.movies[film] = appraisal
-                i++
-            } else {
-                alert('Больше 50 символов нельзя')
-            }
+        while (this.count === '' || this.count  == null || isNaN(this.count )) {
+            this.count = prompt('Сколько фильмоввы уже посмотрели')
 
         }
-    }
-}
-rememberMyFilms()
+    },
+    rememberMyFilms: function () {
+        let film = '', appraisal = ''
+        for (let i = 0; i < 2;) {
+            film = prompt('Один из последних просмотренных фильмов?').trim()
+            appraisal = prompt('На сколько его оцените?')
+            if (film !== '' && film !== null) {
+                if (film.length < 50) {
+                    this.movies[film] = appraisal
+                    i++
+                } else {
+                    alert('Больше 50 символов нельзя')
+                }
 
-function showMyDB() {
-    if (personalMovieDB.privat === false) {
-        console.log(personalMovieDB)
-    }
-}
-showMyDB()
-function detectPersonalLevel() {
-    if (personalMovieDB.count < 10) {
-        alert('Просмотрено довольно мало фильмов')
-    } else if (personalMovieDB.count < 10 && personalMovieDB.count < 30) {
-        alert('Вы классический зритель')
-    } else if (personalMovieDB.count > 30) {
-        alert('Вы киноман')
-    } else {
-        alert('Произошла ошибка')
-    }
-}
-detectPersonalLevel()
+            }
+        }
+    },
+    showMyDB: function() {
+        if (this.privat === false) {
+            console.log(this.privat)
+        }
+    },
+    toggleVisibleMyDB: function (){
+        if (this.privat === false)  this.privat = !this.privat
+        else this.privat = !this.privat
 
-function writeYourGenres() {
-    for(let i=1;i <= 3;i++) {
-       personalMovieDB.genres[i -1] = prompt(`Ваш любимый жанр под номером ${i}`)
+    },
+    detectPersonalLevel: function () {
+        if (this.count < 10) {
+            alert('Просмотрено довольно мало фильмов')
+        } else if (this.count < 10 && this.count < 30) {
+            alert('Вы классический зритель')
+        } else if (this.count > 30) {
+            alert('Вы киноман')
+        } else {
+            alert('Произошла ошибка')
+        }
+    },
+    writeYourGenres: function () {
+        for(let i=1;i <= 3;i++) {
+            this.genres[i -1] = prompt(`Ваш любимый жанр под номером ${i}`)
+        }
     }
+
 }
-writeYourGenres()
+
+
+
+personalMovieDB.start()
+
+
+personalMovieDB.rememberMyFilms()
+
+personalMovieDB.toggleVisibleMyDB()
+personalMovieDB.showMyDB()
+personalMovieDB.toggleVisibleMyDB()
+
+personalMovieDB.detectPersonalLevel()
+
+
+personalMovieDB.writeYourGenres()
 console.log(personalMovieDB)
