@@ -20,3 +20,5 @@ Object.setPrototypeOf(jonh, soldier)// делает прототип к обье
 const jonh2 = Object.create(soldier)// к пустому обьекту сразу добавляет прототип
 console.log(jonh.armor)
 console.log(jonh2.armor)
+let y = 1; let x = y = 2;
+console.log(x);
